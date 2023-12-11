@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>Xpoge</title>
+
+	<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link type="image/x-icon" href="images/fav-icon.png" rel="icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/glass-case.css">
+    <link rel="stylesheet" type="text/css" href="css/xpoge.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142494086-2');
+    </script>
+	</head>
+	<body>
+		<!-- Start preloader -->
+		<div id="preloader"></div>
+		<!-- End preloader -->
+
+		<!-- Search Screen start -->
+		<div class="sidebar-search-wrap">
+		    <div class="sidebar-table-container">
+			    <div class="sidebar-align-container">
+			        <div class="search-closer right-side"></div>
+			        <div class="search-container">
+			          <form method="get" id="search-form">
+			            <input type="text" id="s" class="search-input" name="s" placeholder="Start Searching">
+			          </form>
+			          <span>Search and Press Enter</span>
+			        </div>
+			    </div>
+		    </div>
+		</div>
+		<!-- Search Screen end -->
+
+		<div class="main">
+			<!-- Header start -->
+			<header id="header">
+				<div class="container">
+					<div class="row m-0">
+						<div class="col-lg-3 col-md-4 col-4 p-0">
+			            	<div class="navbar-header">
+				                <a class="navbar-brand page-scroll" href="index.html">
+				                	<img alt="xpoge" src="images/logo.png">
+				                </a> 
+			            	</div>
+				        </div>
+				        <div class="col-lg-9 col-md-8 col-8 p-0">
+				        	<div class="right-side">
+					        	<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle d-block d-lg-none d-xl-none" type="button"><i class="fa fa-bars"></i>
+					        	</button>
+					        	<div class="overlay"></div>
+					        	<div id="menu" class="navbar-collapse collapse" >
+					                <ul class="nav navbar-nav">
+						                <li class="level">
+						                  	<a href="index.html" class="nav-link">Home</a>
+						                </li>
+						                <li class="level dropdown">
+						                	<span class="opener plus"></span>
+						                  	<a href="shop.html" class="nav-link">Men</a>
+						                  	<div class="megamenu mobile-sub-menu">
+							                    <div class="megamenu-inner-top">
+							                      <ul class="sub-menu-level1">
+							                        <li class="level2 "> <a href="shop.html"><span>Men Cloths</span></a>
+							                          <ul class="sub-menu-level2">
+							                            <li class="level3"><a href="shop.html"><span>■</span>Navy Blazer</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Sport Jeans</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Sleeveless Shirt</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Trousers</a></li>
+							                          </ul>
+							                        </li>
+							                        <li class="level2"> <a href="shop.html"><span>Men Fashion</span></a>
+							                          <ul class="sub-menu-level2 ">
+							                            <li class="level3"><a href="shop.html"><span>■</span>Purse</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Sport Shoes</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Wallets</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Belt</a></li>
+							                          </ul>
+							                        </li>
+							                        <li class="level2"> <a href="shop.html"><span>Accessories</span></a>
+							                          <ul class="sub-menu-level2 ">
+							                            <li class="level3"><a href="shop.html"><span>■</span>Sunglasses</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Pocket Watch</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Gloves</a></li>
+							                            <li class="level3"><a href="shop.html"><span>■</span>Socks</a></li>
+							                          </ul>
+							                        </li>
+							                      </ul>
+							                    </div>
+							                </div>
+						                </li>
+						                <li class="level">
+						                  	<a href="shop.html" class="nav-link">Women</a>
+						                </li>
+						                <li class="level">
+						                  	<a href="shop.html" class="nav-link">Juniors</a>
+						                </li>
+						                <li class="level dropdown">
+						                	<span class="opener plus"></span>
+						                  	<a href="blog-left-col.html">Blog</a>
+						                  	<div class="megamenu mobile-sub-menu">
+							                    <div class="megamenu-inner-top">
+							                      <ul class="sub-menu-level1">
+							                        <li class="level2 ">
+							                        	<ul class="sub-menu-level2">
+								                            <li class="level3"><a href="blog-left-col.html"><span>■</span>Blog Left-Sidebar</a></li>
+								                            <li class="level3"><a href="blog-right-col.html"><span>■</span>Blog Right-Sidebar</a></li>
+								                            <li class="level3"><a href="blog-detail.html"><span>■</span>Singal Blog</a></li>
+								                        </ul>
+							                        </li>
+							                      </ul>
+							                    </div>
+							                </div>
+						                </li>
+						                <li class="level dropdown">
+						                	<span class="opener plus"></span>
+						                  	<a href="#" class="nav-link">Pages</a>
+						                  	<div class="megamenu mobile-sub-menu">
+							                    <div class="megamenu-inner-top">
+							                      <ul class="sub-menu-level1">
+							                        <li class="level2 ">
+							                        	<ul class="sub-menu-level2">
+								                            <li class="level3"><a href="contact.html"><span>■</span>Contact</a></li>
+								                            <li class="level3"><a href="checkout.html"><span>■</span>Checkout</a></li>
+								                            <li class="level3"><a href="wishlist.html"><span>■</span>Wishlist</a></li>
+								                            <li class="level3"><a href="404.html"><span>■</span>404</a></li>
+								                        </ul>
+							                        </li>
+							                      </ul>
+							                    </div>
+							                </div>
+						                </li>
+					                </ul>
+					            </div>
+					            <div class="header-right-link">
+					              <ul>
+					                <li class="search-box">
+					                  <a href="#"><span></span></a>
+					                </li>
+					                <li class="account-icon"> 
+					                	<a href="#"><span></span></a>
+						                <div class="header-link-dropdown account-link-dropdown">
+						                    <ul class="link-dropdown-list">
+						                      <li> <span class="dropdown-title">Default welcome msg!</span>
+						                        <ul>
+						                          <li><a href="login.html">Sign In</a></li>
+						                          <li><a href="register.html">Create an Account</a></li>
+						                        </ul>
+						                      </li>
+						                      <li> <span class="dropdown-title">Language :</span>
+						                        <ul>
+						                          <li><a class="active" href="#">English</a></li>
+						                          <li><a href="#">French</a></li>
+						                          <li><a href="#">German</a></li>
+						                        </ul>
+						                      </li>
+						                      <li> <span class="dropdown-title">Currency :</span>
+						                        <ul>
+						                          <li><a class="active" href="#">USD</a></li>
+						                          <li><a href="#">AUD</a></li>
+						                          <li><a href="#">EUR</a></li>
+						                        </ul>
+						                      </li>
+						                    </ul>
+						                </div>
+					                </li>
+					                <li class="cart-icon"> 
+					                	<a href="#"> <span> <small class="cart-notification">2</small> </span> </a>
+										<div class="cart-dropdown header-link-dropdown">
+											<ul class="cart-list link-dropdown-list">
+											  <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
+											    <figure> <a href="product-page.html" class="pull-left"> <img alt="Xpoge" src="images/1.jpg"></a>
+											      <figcaption> <span><a href="product-page.html">Men's Full Sleeves Collar Shirt</a></span>
+											        <p class="cart-price">$14.99</p>
+											        <div class="product-qty">
+											          <label>Qty:</label>
+											          <div class="custom-qty">
+											            <input type="text" name="qty" maxlength="8" value="1" title="Qty" class="input-text qty" disabled="">
+											          </div>
+											        </div>
+											      </figcaption>
+											    </figure>
+											  </li>
+											  <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
+											    <figure> <a href="product-page.html" class="pull-left"> <img alt="Xpoge" src="images/2.jpg"></a>
+											      <figcaption> <span><a href="product-page.html">Women's Cape Jacket</a></span>
+											        <p class="cart-price">$14.99</p>
+											        <div class="product-qty">
+											          <label>Qty:</label>
+											          <div class="custom-qty">
+											            <input type="text" name="qty" maxlength="8" value="1" title="Qty" class="input-text qty" disabled="">
+											          </div>
+											        </div>
+											      </figcaption>
+											    </figure>
+											  </li>
+											</ul>
+											<p class="cart-sub-totle"> <span class="pull-left">Cart Subtotal</span> <span class="pull-right"><strong class="price-box">$29.98</strong></span> </p>
+											<div class="clearfix"></div>
+											<div class="mt-20"> <a href="cart.html" class="btn-color btn">Cart</a> <a href="checkout.html" class="btn-color btn right-side">Checkout</a> </div>
+										</div>
+					                </li>
+					              </ul>
+					            </div>
+				            </div>
+				        </div>
+					</div>
+				</div>
+			</header>
+			<!-- Header end -->
+
+			<!-- Product detail contant start -->
+			<div class="contant">
+				<div id="banner-part" class="banner inner-banner">
+					<div class="container">
+						<div class="bread-crumb-main">
+							<h1 class="banner-title">Shop</h1>
+							<div class="breadcrumb">
+			                    <ul class="inline">
+			                        <li><a href="index.html">Home</a></li>
+			                        <li><a href="shop.html">Shop</a></li>
+			                        <li>Shop Detail</li>
+			                    </ul>
+			                </div>
+		                </div>
+					</div>
+				</div>
+				<div class="ptb-100">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-5 col-md-6 col-12">
+								<div class="align-center mb-md-30">
+					                <ul id="glasscase" class="gc-start">
+					                    <li><img src="images/1.jpg" alt="Xpoge" /></li>
+					                    <li><img src="images/2.jpg" alt="Xpoge" /></li>
+					                    <li><img src="images/3.jpg" alt="Xpoge" /></li>
+					                    <li><img src="images/4.jpg" alt="Xpoge" data-gc-caption="Your caption text" /></li>
+					                    <li><img src="images/5.jpg" alt="Xpoge" /></li>
+					                    <li><img src="images/6.jpg" alt="Xpoge" /></li>
+					                </ul>
+					            </div>
+							</div>
+							<div class="col-lg-7 col-md-6 col-12">
+								<div class="product-detail-main">
+									<div class="product-item-details">
+										<h1 class="product-item-name">Men's Full Sleeves Collar Shirt</h1>
+				                        <div class="price-box"> <span class="price">$80.00</span> 
+				                        	<del class="price old-price">$120.00</del>
+				                        </div>
+		                				<div class="rating-main">
+											<div class="rating-summary-block">
+					                        	<div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
+					                        </div>
+					                        <span>1 Review (s)</span>
+				                        </div>
+				                        <div class="product-des">
+		                					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco aboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in oluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+		                				</div>
+				                        <ul class="product-list">
+				                        	<li><i class="fa fa-check"></i> Satisfaction 100% Guaranteed</li>
+				                        	<li><i class="fa fa-check"></i> Free shipping on orders over $99</li>
+				                        	<li><i class="fa fa-check"></i> 14 day easy Return</li>
+				                        </ul>
+				                        <hr class="mb-20">
+				                        <div class="row">
+				                        	<div class="col-12">
+				                        		<div class="table-listing qty mb-20">
+						                            <div class="row">
+						                                <div class="col-xl-2 col-md-3 col-sm-12">
+						                                  <span>Qty:</span>
+						                                </div>
+						                                <div class="col-xl-10 col-md-9 col-sm-12">
+						                                  <div class="custom-qty">
+						                                    <button onclick="var result = document.getElementById('qty1'); var qty1 = result.value; if( !isNaN( qty1 ) &amp;&amp; qty1 > 1 ) result.value--;return false;" class="reduced items" type="button"> <i class="fa fa-minus"></i> </button>
+						                                    <input type="text" class="input-text qty" title="Qty" value="1" maxlength="8" id="qty1" name="qty">
+						                                    <button onclick="var result = document.getElementById('qty1'); var qty1 = result.value; if( !isNaN( qty1 )) result.value++;return false;" class="increase items" type="button"> <i class="fa fa-plus"></i> </button>
+						                                  </div>
+						                                </div>
+						                            </div>
+					                            </div>
+				                            </div>
+				                            <div class="col-12">
+					                            <div class="table-listing product-size select-arrow mb-20">
+					                            	<div class="row">
+					                            		<div class="col-xl-2 col-md-3 col-sm-12">
+								                        	<span>Size:</span>
+								                        </div>
+								                        <div class="col-xl-10 col-md-9 col-sm-12">
+									                        <select class="selectpicker full" id="select-by-size">
+									                          <option selected="selected" value="#">S</option>
+									                          <option value="#">M</option>
+									                          <option value="#">L</option>
+									                        </select>
+								                        </div>
+							                        </div>
+							                    </div>
+						                    </div>
+						                    <div class="col-12">
+					                            <div class="table-listing product-color select-arrow mb-20">
+					                            	<div class="row">
+					                            		<div class="col-xl-2 col-md-3 col-12">
+								                        	<span>Color:</span>
+								                        </div>
+								                        <div class="col-xl-10 col-md-9 col-12">
+									                        <select class="selectpicker full" id="select-by-color">
+									                        	<option selected="selected" value="#">Blue</option>
+									                        	<option value="#">Green</option>
+									                        	<option value="#">Orange</option>
+									                        	<option value="#">White</option>
+									                        </select>
+								                        </div>
+							                        </div>
+							                    </div>
+						                    </div>
+				                        </div>
+				                        <hr class="mb-20">
+				                        <div class="product-details-btn"><!-- detail-page-btn  -->
+				                        	<ul>
+				                        		<li class="icon cart-icon">
+				                        			<a href="cart.html" class="btn btn-color"><span></span>Add to cart</a>
+				                        		</li>
+				                        		<li class="icon wishlist-icon">
+				                        			<a href="wishlist.html" class="btn btn-transparent"><span></span></a>
+				                        		</li>
+				                        		<li class="icon compare-icon">
+				                        			<a href="#" class="btn btn-transparent"><span></span></a>
+				                        		</li>
+				                        	</ul>
+				                        </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Product detail contant end -->
+
+			<section class="product-tab-part position-r pb-100">
+				<div class="container">
+					<div class="product-tab-inner">
+		                <div class="row">
+		                	<div class="col-12">
+		                		 <div id="tabs">
+			                    	<ul class="nav nav-tabs">
+				                        <li><a class="tab-Description selected" title="Description">Description</a></li>
+				                        <li><a class="tab-Tags" title="Tags">Product Tags</a></li>
+				                        <li><a class="tab-Review" title="Review">Review</a></li>
+			                    	</ul>
+			                    </div>
+			                    <div id="items">
+				                    <div class="tab_content">
+				                        <ul>
+				                        	<li>
+				                            	<div class="items-Description selected">
+				                            		Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+				                            	</div>
+				                            </li>
+				                            <li>
+				                            	<div class="items-Tags">
+				                            		<p>Mauris felis neque, hendrerit id velit a, sollicitudin gravida nunc in velit lectus, varius quis pretium fermentum, faucibus vel ante etiam justo nulla, condimentum sit amet urna eget, rutrum auctor massa suspendisse sit amet odio et dui lobortis iaculis phasellus sagittis interdum neque, fermentum gravida ante maximus sed nunc lobortis bibendum elementum integer rhoncus et libero ut suscipit aliquam non ligula id dui consequat viverra a ut sem pellentesque et sapien eget lorem viverra dignissim.</p>
+				                            	</div>
+				                            </li>
+				                            <li>
+				                            	<div class="items-Review">
+				                            		<div class="comment-part">
+														<h3 class="head-three">03 Comments</h3>
+														<ul class="comment-list mt-30">
+															<li>
+																<div class="comment-user">
+																	<img src="images/comment-img1.jpg" alt="comment-img">
+																</div>
+																<div class="comment-detail">
+																	<span class="commenter"><span>John Doe</span> (05 Jan 2020)</span>
+																	<p>Lorem ipsum dolor sit amet adipiscing elit labore dolore that sed do eiusmod tempor labore dolore that magna aliqua. Ut enim ad minim veniam, exercitation.</p>
+																	<a href="#" class="reply-btn btn btn-color small">Reply</a>
+																</div>
+																<div class="clearfix"></div>
+															</li>
+															<li>
+																<ul class="comment-list child-comment">
+																	<li>
+																		<div class="comment-user">
+																			<img src="images/comment-img2.jpg" alt="comment-img">
+																		</div>
+																		<div class="comment-detail">
+																			<span class="commenter"><span>John Doe</span> (12 Jan 2020)</span>
+																			<p>Lorem ipsum dolor sit amet adipiscing elit labore dolore that sed do eiusmod tempor labore dolore that magna aliqua. Ut enim ad minim veniam, exercitation.</p>
+																			<a href="#" class="reply-btn btn btn-color small">Reply</a>
+																		</div>
+																		<div class="clearfix"></div>
+																	</li>
+																	<li>
+																		<div class="comment-user">
+																			<img src="images/comment-img3.jpg" alt="comment-img">
+																		</div>
+																		<div class="comment-detail">
+																			<span class="commenter"><span>John Doe</span> (15 Jan 2020)</span>
+																			<p>Lorem ipsum dolor sit amet adipiscing elit labore dolore that sed do eiusmod tempor labore dolore that magna aliqua. Ut enim ad minim veniam, exercitation.</p>
+																			<a href="#" class="reply-btn btn btn-color small">Reply</a>
+																		</div>
+																		<div class="clearfix"></div>
+																	</li>
+																</ul>
+															</li>
+														</ul>
+													</div>
+													<div class="leave-comment-part pt-100">
+														<h3 class="head-three">Leave A Comment</h3>
+														<form class="main-form">
+															<div class="row">
+																<div class="col-md-4">
+																  	<div class="form-group mb-30">
+																    	<input type="text" placeholder="Name" required="">
+																  	</div>
+																</div>
+																<div class="col-md-4">
+																  	<div class="form-group mb-30">
+																    	<input type="text" placeholder="Subject" required="">
+																  	</div>
+															  	</div>
+															  	<div class="col-md-4">
+																  	<div class="form-group mb-30">
+																    	<input type="text" placeholder="Email" required="">
+																  	</div>
+															  	</div>
+															  	<div class="col-12">
+																  	<div class="form-group mb-30">
+																	    <textarea placeholder="Message" rows="5" required=""></textarea>
+																	</div>
+																</div>
+																<div class="col-12">
+															  		<button type="submit" class="btn-color">Post Comment</button>
+															  	</div>
+															</div>
+														</form>
+													</div>
+				                            	</div>
+				                            </li>
+				                        </ul>
+				                    </div>
+			                	</div>
+		                	</div>
+		                </div>
+	                </div>
+				</div>
+			</section>
+
+			<!-- Related Product Section Start -->
+			<section class="product-section pb-100">
+				<div class="container">
+					<div class="row">
+	                	<div class="col-12">
+	                    	<div class="heading-part text-center mb-30 mb-sm-20">
+	                        	<h2 class="main_title">Related Product</h2>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="position-r">
+	                	<div class="row">
+		                	<div class="product-slider owl-carousel position-initial">
+			                	<div class="item">
+			                		<div class="product-item">
+			                			<div class="product-image">
+			                				<div class="sale-label"><span>Sale</span></div>
+			                				<a href="product-page.html">
+				                				<img src="images/1.jpg" alt="Xpoge">
+				                			</a>
+			                			</div>
+			                			<div class="product-details-outer">
+				                			<div class="product-details">
+				                				<div class="product-title">
+				                					<a href="product-page.html">Men's Full Sleeves Collar Shirt</a>
+				                				</div>
+				                				<div class="price-box">
+				                					<span class="price">$95.50</span>
+				                					<del class="price old-price">$100.00</del>
+				                				</div>
+				                			</div>
+				                			<div class="product-details-btn">
+				                				<ul>
+				                					<li class="icon cart-icon">
+				                						<a href="cart.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon wishlist-icon">
+				                						<a href="wishlist.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon compare-icon">
+				                						<a href="#">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                				</ul>
+				                			</div>
+			                			</div>
+			                		</div>
+			                	</div>
+			                	<div class="item">
+			                		<div class="product-item">
+			                			<div class="product-image">
+			                				<a href="product-page.html">
+				                				<img src="images/2.jpg" alt="Xpoge">
+				                			</a>
+			                			</div>
+			                			<div class="product-details-outer">
+				                			<div class="product-details">
+				                				<div class="product-title">
+				                					<a href="product-page.html">Women's Cape Jacket</a>
+				                				</div>
+				                				<div class="price-box">
+				                					<span class="price">$30.22</span>
+				                				</div>
+				                			</div>
+				                			<div class="product-details-btn">
+				                				<ul>
+				                					<li class="icon cart-icon">
+				                						<a href="cart.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon wishlist-icon">
+				                						<a href="wishlist.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon compare-icon">
+				                						<a href="#">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                				</ul>
+				                			</div>
+			                			</div>
+			                		</div>
+			                	</div>
+			                	<div class="item">
+			                		<div class="product-item">
+			                			<div class="product-image">
+		                					<div class="new-label"><span>New</span></div>
+			                				<a href="product-page.html">
+				                				<img src="images/3.jpg" alt="Xpoge">
+				                			</a>
+			                			</div>
+			                			<div class="product-details-outer">
+				                			<div class="product-details">
+				                				<div class="product-title">
+				                					<a href="product-page.html">Men's Regular Fit T-Shirt</a>
+				                				</div>
+				                				<div class="price-box">
+				                					<span class="price">$56.00</span>
+				                				</div>
+				                			</div>
+				                			<div class="product-details-btn">
+				                				<ul>
+				                					<li class="icon cart-icon">
+				                						<a href="cart.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon wishlist-icon">
+				                						<a href="wishlist.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon compare-icon">
+				                						<a href="#">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                				</ul>
+				                			</div>
+			                			</div>
+			                		</div>
+			                	</div>
+			                	<div class="item">
+			                		<div class="product-item">
+			                			<div class="product-image">
+			                				<a href="product-page.html">
+				                				<img src="images/4.jpg" alt="Xpoge">
+				                			</a>
+			                			</div>
+			                			<div class="product-details-outer">
+				                			<div class="product-details">
+				                				<div class="product-title">
+				                					<a href="product-page.html">Women's Cotton Plain T-Shirts</a>
+				                				</div>
+				                				<div class="price-box">
+				                					<span class="price">$65.23</span>
+				                					<del class="price old-price">$70.00</del>
+				                				</div>
+				                			</div>
+				                			<div class="product-details-btn">
+				                				<ul>
+				                					<li class="icon cart-icon">
+				                						<a href="cart.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon wishlist-icon">
+				                						<a href="wishlist.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon compare-icon">
+				                						<a href="#">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                				</ul>
+				                			</div>
+			                			</div>
+			                		</div>
+			                	</div>
+			                	<div class="item">
+			                		<div class="product-item">
+			                			<div class="product-image">
+			                				<a href="product-page.html">
+				                				<img src="images/5.jpg" alt="Xpoge">
+				                			</a>
+			                			</div>
+			                			<div class="product-details-outer">
+				                			<div class="product-details">
+				                				<div class="product-title">
+				                					<a href="product-page.html">Men's Printed Regular Shirt</a>
+				                				</div>
+				                				<div class="price-box">
+				                					<span class="price">$45.25</span>
+				                				</div>
+				                			</div>
+				                			<div class="product-details-btn">
+				                				<ul>
+				                					<li class="icon cart-icon">
+				                						<a href="cart.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon wishlist-icon">
+				                						<a href="wishlist.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon compare-icon">
+				                						<a href="#">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                				</ul>
+				                			</div>
+			                			</div>
+			                		</div>
+			                	</div>
+			                	<div class="item">
+			                		<div class="product-item">
+			                			<div class="product-image">
+			                				<div class="sale-label"><span>Sale</span></div>
+		                					<div class="new-label"><span>New</span></div>
+			                				<a href="product-page.html">
+				                				<img src="images/6.jpg" alt="Xpoge">
+				                			</a>
+			                			</div>
+			                			<div class="product-details-outer">
+				                			<div class="product-details">
+				                				<div class="product-title">
+				                					<a href="product-page.html">Polyester Printed T-Shirts</a>
+				                				</div>
+				                				<div class="price-box">
+				                					<span class="price">$88.54</span>
+				                					<del class="price old-price">$100.00</del>
+				                				</div>
+				                			</div>
+				                			<div class="product-details-btn">
+				                				<ul>
+				                					<li class="icon cart-icon">
+				                						<a href="cart.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon wishlist-icon">
+				                						<a href="wishlist.html">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                					<li class="icon compare-icon">
+				                						<a href="#">
+				                							<span></span>
+				                						</a>
+				                					</li>
+				                				</ul>
+				                			</div>
+			                			</div>
+			                		</div>
+			                	</div>
+		                	</div>
+	                	</div>
+	                </div>
+				</div>
+			</section>
+			<!-- Related Product Section End -->
+
+			<!-- Newslatter section start -->
+			<section class="newsletter-section align-center ptb-100">
+	            <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7 col-lg-9 col-12">
+                            <div class="newsletter-title">
+                                <h2 class="main_title">Sign up for Newsletter </h2>
+                                <p>Wants to get latest updates! sign up for Free </p>
+                            </div>
+                            <div class="newsletter-input">
+                                <form>
+                                    <div class="form-group m-0">
+                                        <input type="email" placeholder="Your email address" required="">
+                                    </div>
+                                    <button type="submit" class="btn btn-color"><span class="d-none d-sm-block">Subscribe</span> <i class="fa fa-send d-block d-sm-none"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+	            </div>
+	        </section>
+	        <!-- Newslatter section end -->
+
+			<!-- Footer section start -->
+			<footer class="footer-part">
+				<div class="container">
+					<div class="footer-top ptb-100">
+						<div class="mb_-30">
+							<div class="row">
+								<div class="col-12 col-lg-3 col-md-6">
+									<div class="footer-about mb-sm-30">
+										<div class="footer-logo">
+											<a href="index.html">
+												<img src="images/logo.png" alt="logo">
+											</a>
+										</div>
+										<p class="footer-p">Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh mauris sit amet nibh. Donec sodales sagittis</p>
+									</div>
+								</div>
+								<div class="col-12 col-lg-3 col-md-6">
+									<div class="footer-static-block">
+										<span class="opener plus"></span>
+										<h3 class="head-three">Information</h3>
+										<ul class="footer-menu footer-block-contant">
+											<li><a href="contact.html">Contact Us</a></li>
+											<li><a href="javascript:void(0)">Brands</a></li>
+											<li><a href="blog-left-col.html">Blog</a></li>
+											<li><a href="javascript:void(0)">Returns</a></li>
+											<li><a href="javascript:void(0)">Privacy Policy</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-12 col-lg-3 col-md-6">
+									<div class="footer-static-block">
+										<span class="opener plus"></span>
+										<h3 class="head-three">My Account</h3>
+										<ul class="footer-menu footer-block-contant">
+											<li><a href="javascript:void(0)">Order History</a></li>
+											<li><a href="wishlist.html">Wish List</a></li>
+											<li><a href="javascript:void(0)">Newsletter</a></li>
+											<li><a href="javascript:void(0)">Specials</a></li>
+											<li><a href="javascript:void(0)">Gift Certificates</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-12 col-lg-3 col-md-6">
+									<div class="footer-static-block">
+										<span class="opener plus"></span>
+										<h3 class="head-three">Contact us</h3>
+										<div class="contact-box footer-block-contant">
+				                			<ul>
+				                				<li>
+				                					<div class="contact-thumb">
+				                						<img src="images/address-icon.svg" alt="xpoge">
+				                					</div>
+				                					<div class="contact-box-detail">
+				                						<p>869 Lexington Ave, New York, NY 10065, USA</p>
+				                					</div>
+				                				</li>
+				                				<li>
+				                					<div class="contact-thumb">
+				                						<img src="images/phone-icon.svg" alt="xpoge">
+				                					</div>
+				                					<div class="contact-box-detail">
+				                						<p>+91 123 456 789 0</p>
+				                					</div>
+				                				</li>
+				                				<li>
+				                					<div class="contact-thumb">
+				                						<img src="images/mail-icon.svg" alt="xpoge">
+				                					</div>
+				                					<div class="contact-box-detail">
+				                						<p>xpoge@hi123.com</p>
+				                					</div>
+				                				</li>
+				                			</ul>
+				                		</div>
+				                	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-bottom align-center">
+						<div class="row">
+							<div class="col-12">
+								<div class="w-100">
+									<p class="mb-0">© Xpoge all Rights Reserverd theme by <a href="https://TemplatesCoder.com/" target="_blank" title="TemplatesCoder">TemplatesCoder</a></p>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="social-media">
+									<ul>
+										<li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
+										<li><a href="javascript:void(0)"><i class="fa fa-youtube"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- Footer section end -->
+		</div>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/modernizr.js"></script>
+		<script>
+	        $(document).ready( function () {
+	            //If your <ul> has the id "glasscase"
+	            $('#glasscase').glassCase({ 
+	            	'thumbsPosition': 'bottom', 
+	            	'widthDisplayPerc' : 100,
+	            	isDownloadEnabled: false,
+	            });
+	        });
+	    </script>
+		<script src="js/custom.js"></script>
+	</body>
+	
+</html>
