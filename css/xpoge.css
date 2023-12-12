@@ -885,7 +885,7 @@ header.header-fixed {
 }
 
 .header-right-link ul li.cart-icon > a span {
-	background-position: -9px -14px;
+	background-position: -9px -387px;
 	position: relative;
 }
 
@@ -898,7 +898,7 @@ header.header-fixed {
 }
 
 .header-right-link ul li.cart-icon:hover > a span {
-	background-position: -9px -52px;
+	background-position: -9px -421px;
 }
 
 .header-right-link ul li.cart-icon > a span small.cart-notification {
