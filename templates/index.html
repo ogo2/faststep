@@ -6,10 +6,10 @@
     <title>FastStep</title>
 	<!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link type="image/x-icon" href="images/изображение_1load.svg" rel="icon">
+    <link type="image/x-icon" href="{{ url_for('static', path='/images/изображение_1load.svg') }}" rel="icon">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/xpoge.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/xpoge.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/responsive.css') }}">
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -43,7 +43,7 @@
 						<div class="col-lg-3 col-md-4 col-4 p-0">
 			            	<div class="navbar-header">
 				                <a class="navbar-brand page-scroll" href="index.html">
-				                	<img alt="xpoge" style="width:174px;height:52;" src="images/logologo2.svg">
+				                	<img alt="xpoge" style="width:174px;height:52;" src="{{ url_for('static', path='/images/logologo2.svg') }}">
 				                </a> 
 			            	</div>
 				        </div>
@@ -88,7 +88,7 @@
 										<div class="cart-dropdown header-link-dropdown">
 											<ul class="cart-list link-dropdown-list">
 											  <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
-											    <figure> <a href="product-page.html" class="pull-left"> <img alt="Xpoge" src="images/1.jpg"></a>
+											    <figure> <a href="product-page.html" class="pull-left"> <img alt="Xpoge" src="{{ url_for('static', path='/images/1.jpg') }}"></a>
 											      <figcaption> <span><a href="product-page.html">Men's Full Sleeves Collar Shirt</a></span>
 											        <p class="cart-price">$14.99</p>
 											        <div class="product-qty">
@@ -101,7 +101,7 @@
 											    </figure>
 											  </li>
 											  <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
-											    <figure> <a href="product-page.html" class="pull-left"> <img alt="Xpoge" src="images/2.jpg"></a>
+											    <figure> <a href="product-page.html" class="pull-left"> <img alt="Xpoge" src="{{ url_for('static', path='/images/1.jpg') }}"></a>
 											      <figcaption> <span><a href="product-page.html">Women's Cape Jacket</a></span>
 											        <p class="cart-price">$14.99</p>
 											        <div class="product-qty">
@@ -132,7 +132,7 @@
 	        <section id="banner-part" class="menu-section pb-100">
 	        	<div class="banner main-banner owl-carousel">
 	        		<div class="banner-1">
-	        			<img src="images/nike_force.png" alt="Xpoge">
+	        			<img src="{{ url_for('static', path='/images/nike_force.png') }}" alt="Xpoge">
 						<div class="banner-detail">
 							<div class="container">
 								<div class="row">
@@ -151,7 +151,7 @@
 						</div>
 					</div>
 					<div class="banner-2">
-	        			<img src="images/nike_force.png" alt="Xpoge">
+	        			<img src="{{ url_for('static', path='/images/nike_force.png') }}" alt="Xpoge">
 						<div class="banner-detail">
 							<div class="container">
 								<div class="row">
@@ -180,8 +180,8 @@
 	        			<div class="col-md-4">
 	        				<div class="sub-banner-box">
 	        					<a href="shop.html">
-	        						<img class="d-none d-md-block" src="images/Rectangle 338banner_one.svg" alt="Xpoge">
-	        						<img class="d-block d-md-none" src="images/Group 291.png" alt="Xpoge">
+	        						<img class="d-none d-md-block" src="{{ url_for('static', path='/images/Rectangle 338banner_one.svg') }}" alt="Xpoge">
+	        						<img class="d-block d-md-none" src="{{ url_for('static', path='/images/Group 291.png') }}" alt="Xpoge">
 	        					</a>
 	        				</div>
 	        			</div>
@@ -190,16 +190,16 @@
 	        					<div class="col-md-8">
 	        						<div class="sub-banner-box">
 			        					<a href="shop.html">
-			        						<img class="d-none d-md-block" src="images/Rectangle 340banner_two.svg" alt="Xpoge">
-			        						<img class="d-block d-md-none" src="images/Group 302.png" alt="Xpoge">
+			        						<img class="d-none d-md-block" src="{{ url_for('static', path='/images/Rectangle 340banner_two.svg') }}" alt="Xpoge">
+			        						<img class="d-block d-md-none" src="{{ url_for('static', path='/images/Group 302.png') }}" alt="Xpoge">
 			        					</a>
 			        				</div>
 	        					</div>
 	        					<div class="col-md-4">
 	        						<div class="sub-banner-box">
 			        					<a href="shop.html">
-			        						<img class="d-none d-md-block" src="images/Rectangle 339banner_5.svg" alt="Xpoge">
-			        						<img class="d-block d-md-none" src="images/Group 313.png" alt="Xpoge">
+			        						<img class="d-none d-md-block" src="{{ url_for('static', path='/images/Rectangle 339banner_5.svg') }}" alt="Xpoge">
+			        						<img class="d-block d-md-none" src="{{ url_for('static', path='/images/Group 313.png') }}" alt="Xpoge">
 			        					</a>
 			        				</div>
 	        					</div>
@@ -208,8 +208,8 @@
 	        					<div class="col-12">
 	        						<div class="sub-banner-box">
 			        					<a href="shop.html">
-			        						<img class="d-none d-md-block" src="images/Group 28banner_5.svg" alt="Xpoge">
-			        						<img class="d-block d-md-none" src="images/Group 324.png" alt="Xpoge">
+			        						<img class="d-none d-md-block" src="{{ url_for('static', path='/images/Group 28banner_5.svg') }}" alt="Xpoge">
+			        						<img class="d-block d-md-none" src="{{ url_for('static', path='/images/Group 324.png') }}" alt="Xpoge">
 			        					</a>
 			        				</div>
 	        					</div>
@@ -236,9 +236,9 @@
 	                	<div class="col-lg-3 col-md-4 col-6">
 	                		<div class="product-item">
 	                			<div class="product-image">
-	                				<div class="new-label"><span>New</span></div>
+	                				<div class="sale-label"><span>Sale</span></div>
 	                				<a href="product-page.html">
-		                				<img src="images/1.jpg" alt="Xpoge">
+		                				<img src="{{ url_for('static', path='/images/1.jpg') }}" alt="Xpoge">
 		                			</a>
 	                			</div>
 	                			<div class="product-details-outer">
@@ -249,277 +249,6 @@
 		                				<div class="price-box">
 		                					<span class="price">$95.50</span>
 		                					<del class="price old-price">$100.00</del>
-		                				</div>
-		                			</div>
-		                			<div class="product-details-btn">
-		                				<ul>
-		                					<li class="icon cart-icon">
-		                						<a href="cart.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon wishlist-icon">
-		                						<a href="wishlist.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon compare-icon">
-		                						<a href="javascript:void(0)">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                				</ul>
-		                			</div>
-	                			</div>
-	                		</div>
-	                	</div>
-	                	<div class="col-lg-3 col-md-4 col-6">
-	                		<div class="product-item">
-	                			<div class="product-image">
-	                				<a href="product-page.html">
-		                				<img src="images/2.jpg" alt="Xpoge">
-		                			</a>
-	                			</div>
-	                			<div class="product-details-outer">
-		                			<div class="product-details">
-		                				<div class="product-title">
-		                					<a href="product-page.html">Women's Cape Jacket</a>
-		                				</div>
-		                				<div class="price-box">
-		                					<span class="price">$30.22</span>
-		                				</div>
-		                			</div>
-		                			<div class="product-details-btn">
-		                				<ul>
-		                					<li class="icon cart-icon">
-		                						<a href="cart.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon wishlist-icon">
-		                						<a href="wishlist.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon compare-icon">
-		                						<a href="javascript:void(0)">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                				</ul>
-		                			</div>
-	                			</div>
-	                		</div>
-	                	</div>
-	                	<div class="col-lg-3 col-md-4 col-6">
-	                		<div class="product-item">
-	                			<div class="product-image">
-	                				<div class="sale-label"><span>Sale</span></div>
-	                				<a href="product-page.html">
-		                				<img src="images/3.jpg" alt="Xpoge">
-		                			</a>
-	                			</div>
-	                			<div class="product-details-outer">
-		                			<div class="product-details">
-		                				<div class="product-title">
-		                					<a href="product-page.html">Men's Regular Fit T-Shirt</a>
-		                				</div>
-		                				<div class="price-box">
-		                					<span class="price">$56.00</span>
-		                				</div>
-		                			</div>
-		                			<div class="product-details-btn">
-		                				<ul>
-		                					<li class="icon cart-icon">
-		                						<a href="cart.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon wishlist-icon">
-		                						<a href="wishlist.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon compare-icon">
-		                						<a href="javascript:void(0)">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                				</ul>
-		                			</div>
-	                			</div>
-	                		</div>
-	                	</div>
-	                	<div class="col-lg-3 col-md-4 col-6">
-	                		<div class="product-item">
-	                			<div class="product-image">
-	                				<a href="product-page.html">
-		                				<img src="images/4.jpg" alt="Xpoge">
-		                			</a>
-	                			</div>
-	                			<div class="product-details-outer">
-		                			<div class="product-details">
-		                				<div class="product-title">
-		                					<a href="product-page.html">Women's Cotton Plain T-Shirts</a>
-		                				</div>
-		                				<div class="price-box">
-		                					<span class="price">$65.23</span>
-		                					<del class="price old-price">$70.00</del>
-		                				</div>
-		                			</div>
-		                			<div class="product-details-btn">
-		                				<ul>
-		                					<li class="icon cart-icon">
-		                						<a href="cart.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon wishlist-icon">
-		                						<a href="wishlist.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon compare-icon">
-		                						<a href="javascript:void(0)">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                				</ul>
-		                			</div>
-	                			</div>
-	                		</div>
-	                	</div>
-	                	<div class="col-lg-3 col-md-4 col-6">
-	                		<div class="product-item">
-	                			<div class="product-image">
-	                				<a href="product-page.html">
-		                				<img src="images/5.jpg" alt="Xpoge">
-		                			</a>
-	                			</div>
-	                			<div class="product-details-outer">
-		                			<div class="product-details">
-		                				<div class="product-title">
-		                					<a href="product-page.html">Men's Printed Regular Shirt</a>
-		                				</div>
-		                				<div class="price-box">
-		                					<span class="price">$45.25</span>
-		                				</div>
-		                			</div>
-		                			<div class="product-details-btn">
-		                				<ul>
-		                					<li class="icon cart-icon">
-		                						<a href="cart.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon wishlist-icon">
-		                						<a href="wishlist.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon compare-icon">
-		                						<a href="javascript:void(0)">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                				</ul>
-		                			</div>
-	                			</div>
-	                		</div>
-	                	</div>
-	                	<div class="col-lg-3 col-md-4 col-6">
-	                		<div class="product-item">
-	                			<div class="product-image">
-		                			<div class="sale-label"><span>Sale</span></div>
-		                			<div class="new-label"><span>New</span></div>
-	                				<a href="product-page.html">
-		                				<img src="images/6.jpg" alt="Xpoge">
-		                			</a>
-	                			</div>
-	                			<div class="product-details-outer">
-		                			<div class="product-details">
-		                				<div class="product-title">
-		                					<a href="product-page.html">Polyester Printed T-Shirts</a>
-		                				</div>
-		                				<div class="price-box">
-		                					<span class="price">$88.54</span>
-		                					<del class="price old-price">$100.00</del>
-		                				</div>
-		                			</div>
-		                			<div class="product-details-btn">
-		                				<ul>
-		                					<li class="icon cart-icon">
-		                						<a href="cart.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon wishlist-icon">
-		                						<a href="wishlist.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon compare-icon">
-		                						<a href="javascript:void(0)">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                				</ul>
-		                			</div>
-	                			</div>
-	                		</div>
-	                	</div>
-	                	<div class="col-lg-3 col-md-4 col-6">
-	                		<div class="product-item">
-	                			<div class="product-image">
-	                				<a href="product-page.html">
-		                				<img src="images/7.jpg" alt="Xpoge">
-		                			</a>
-	                			</div>
-	                			<div class="product-details-outer">
-		                			<div class="product-details">
-		                				<div class="product-title">
-		                					<a href="product-page.html">Excalibur Men's Slim Formal Trousers</a>
-		                				</div>
-		                				<div class="price-box">
-		                					<span class="price">$68.55</span>
-		                				</div>
-		                			</div>
-		                			<div class="product-details-btn">
-		                				<ul>
-		                					<li class="icon cart-icon">
-		                						<a href="cart.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon wishlist-icon">
-		                						<a href="wishlist.html">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                					<li class="icon compare-icon">
-		                						<a href="javascript:void(0)">
-		                							<span></span>
-		                						</a>
-		                					</li>
-		                				</ul>
-		                			</div>
-	                			</div>
-	                		</div>
-	                	</div>
-	                	<div class="col-lg-3 col-md-4 col-6">
-	                		<div class="product-item">
-	                			<div class="product-image">
-	                				<a href="product-page.html">
-		                				<img src="images/8.jpg" alt="Xpoge">
-		                			</a>
-	                			</div>
-	                			<div class="product-details-outer">
-		                			<div class="product-details">
-		                				<div class="product-title">
-		                					<a href="product-page.html">A-Line Dress for Women's</a>
-		                				</div>
-		                				<div class="price-box">
-		                					<span class="price">$77.54</span>
 		                				</div>
 		                			</div>
 		                			<div class="product-details-btn">
@@ -557,8 +286,28 @@
 			<!-- Product Section End -->
 
 			
-
-
+			<!-- Newslatter section start -->
+			<section class="newsletter-section align-center ptb-100">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-xl-7 col-lg-9 col-12">
+							<div class="newsletter-title">
+								<h2 class="main_title">Подписаться на рассылку</h2>
+								<p>Узнай о акциях первым!</p>
+							</div>
+							<div class="newsletter-input">
+								<form>
+									<div class="form-group m-0">
+										<input type="email" placeholder="Адрес почты" required="">
+									</div>
+									<button type="submit" class="btn btn-color"><span class="d-none d-sm-block">Подписаться</span> <i class="fa fa-send d-block d-sm-none"></i></button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Newslatter section end -->
 			<!-- Footer section start -->
 			<footer class="footer-part">
 				<div class="container">
@@ -569,7 +318,7 @@
 									<div class="footer-about mb-sm-30">
 										<div class="footer-logo">
 											<a href="index.html">
-												<img src="images/logologo2.svg" alt="logo">
+												<img src="{{ url_for('static', path='/images/logologo2.svg') }}" alt="logo">
 											</a>
 										</div>
 										<p class="footer-p">Fast Step специализируется на продаже кроссовок с выгодными скидками. Мы изучаем рынок, чтобы представить вам самые модные модели по самым привлекательным ценам.</p>
@@ -577,10 +326,10 @@
 								</div>
 								<div class="col-12 col-lg-3 col-md-6">
 									<div class="footer-static-block">
-										<a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="opener plus"></span></a>
+										<a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="opener plus"></span></a>
 										<h3 class="head-three">Информация</h3> 
 										<div class="collapse" id="collapseExample">
-											<ul class="footer-menu footer-block-contant">
+											<ul>
 												<li><a href="contact.html">Контакты</a></li>
 												<li><a href="javascript:void(0)">Бренды</a></li>
 												<li><a href="javascript:void(0)">Политика конфиденциальности</a></li>
@@ -596,13 +345,13 @@
 								</div>
 								<div class="col-12 col-lg-3 col-md-6">
 									<div class="footer-static-block">
-										<span class="opener plus"></span>
-										<a data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample"><h3 class="head-three">Контакты</h3></a>
+										<a data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"><span class="opener plus"></span></a>
+										<h3 class="head-three">Контакты</h3>
 										<div class="collapse" id="collapseExample2">
 											<ul>
 												<li>
 													<div class="contact-thumb">
-														<img style="width: 25px;" src="images/telegram.svg" alt="xpoge">
+														<img style="width: 25px;" src="{{ url_for('static', path='/images/telegram.svg') }}" alt="xpoge">
 													</div>
 													<div class="contact-box-detail">
 														<a><p>@hibot</p></a>
@@ -610,7 +359,7 @@
 												</li>
 												<li>
 													<div class="contact-thumb">
-														<img style="width: 25px;" src="images/instagram.svg" alt="xpoge">
+														<img style="width: 25px;" src="{{ url_for('static', path='/images/instagram.svg') }}" alt="xpoge">
 													</div>
 													<div class="contact-box-detail">
 														<a><p>@westbadgang</p></a>
@@ -618,7 +367,7 @@
 												</li>
 												<li>
 													<div class="contact-thumb">
-														<img src="images/mail-icon.svg" alt="xpoge">
+														<img src="{{ url_for('static', path='/images/mail-icon.svg') }}" alt="xpoge">
 													</div>
 													<div class="contact-box-detail">
 														<p>info@faststep.su</p>
@@ -631,7 +380,7 @@
 				                			<ul>
 				                				<li>
 				                					<div class="contact-thumb">
-				                						<img style="width: 25px;" src="images/telegram.svg" alt="xpoge">
+				                						<img style="width: 25px;" src="{{ url_for('static', path='/images/telegram.svg') }}" alt="xpoge">
 				                					</div>
 				                					<div class="contact-box-detail">
 				                						<a><p>@hibot</p></a>
@@ -639,7 +388,7 @@
 				                				</li>
 				                				<li>
 				                					<div class="contact-thumb">
-				                						<img style="width: 25px;" src="images/instagram.svg" alt="xpoge">
+				                						<img style="width: 25px;" src="{{ url_for('static', path='/images/instagram.svg') }}" alt="xpoge">
 				                					</div>
 				                					<div class="contact-box-detail">
 				                						<a><p>@westbadgang</p></a>
@@ -647,7 +396,7 @@
 				                				</li>
 				                				<li>
 				                					<div class="contact-thumb">
-				                						<img src="images/mail-icon.svg" alt="xpoge">
+				                						<img src="{{ url_for('static', path='/images/mail-icon.svg') }}" alt="xpoge">
 				                					</div>
 				                					<div class="contact-box-detail">
 				                						<p>info@faststep.su</p>
@@ -682,11 +431,11 @@
 
 			<!-- Footer section end -->
 		</div>
-		<script src="js/jquery-3.4.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/custom.js"></script>
+		<script src="{{ url_for('static', path='/js/jquery-3.4.1.min.js') }}"></script>
+		<script src="{{ url_for('static', path='/js/bootstrap.min.js') }}"></script>
+		<script src="{{ url_for('static', path='/js/owl.carousel.min.js') }}"></script>
+		<script src="{{ url_for('static', path='/js/jquery.magnific-popup.min.js') }}"></script>
+		<script src="{{ url_for('static', path='/js/custom.js') }}"></script>
 		<!-- <script>
 			/* ------------ Newslater-popup JS Start ------------- */
 				$(window).on('load', function(){
