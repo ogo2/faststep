@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+	<!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+	<!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link type="image/x-icon" href="{{ url_for('static', path='/images/изображение_1load.svg') }}" rel="icon">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/xpoge.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/responsive.css') }}">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142494086-2');
+    </script>	
+</head>
+	<body>
+
+		<!-- Search Screen start -->
+		<div class="sidebar-search-wrap">
+		    <div class="sidebar-table-container">
+			    <div class="sidebar-align-container">
+			        <div class="search-closer right-side"></div>
+			        <div class="search-container">
+			          <form method="get" id="search-form">
+			            <input type="text" id="s" class="search-input" name="s" placeholder="Start Searching">
+			          </form>
+			          <span>Search and Press Enter</span>
+			        </div>
+			    </div>
+		    </div>
+		</div>
+		<!-- Search Screen end -->
+			<!-- Header start -->
+			<header id="header">
+				<div class="container position-r">
+					<div class="row m-0">
+						<div class="col-lg-3 col-md-4 col-4 p-0">
+			            	<div class="navbar-header">
+				                <a class="navbar-brand page-scroll" href="index.html">
+				                	<img alt="xpoge" style="width:174px;height:52;" src="{{ url_for('static', path='/images/logologo2.svg') }}">
+				                </a> 
+			            	</div>
+				        </div>
+				        <div class="col-lg-9 col-md-8 col-8 p-0 position-initial">
+				        	<div class="right-side">
+					        	<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle d-block d-lg-none d-xl-none" type="button"><i class="fa fa-bars"></i>
+					        	</button>
+					        	<div class="overlay"></div>
+					        	<div id="menu" class="navbar-collapse collapse" >
+					                <ul class="nav navbar-nav">
+						                <li class="level">
+						                  	<a href="index.html" class="nav-link">Главная</a>
+						                </li>
+						                <li class="level">
+											<a href="shop.html" class="nav-link">Кроссовки</a>
+									  </li>
+										<li class="level">
+											<a href="index.html" class="nav-link">Бренды</a>
+									  </li>
+					                </ul>
+					            </div>
+					            <div class="header-right-link">
+					              <ul>
+					                <li class="search-box">
+					                  <a href="#"><span></span></a>
+					                </li>
+					                <li class="account-icon"> 
+					                	<a href="#"><span></span></a>
+						                <div class="header-link-dropdown account-link-dropdown">
+						                    <ul class="link-dropdown-list">
+						                      <li> <span class="dropdown-title">Добро пожаловать в Fast Step</span>
+						                        <ul>
+						                          <li><a href="login.html">Войти</a></li>
+						                          <li><a href="register.html">Создать новый аккаунт</a></li>
+						                        </ul>
+						                      </li>
+						                    </ul>
+						                </div>
+					                </li>
+					                <li class="cart-icon"> 
+					                	<a href="#"> <span> <small class="cart-notification">2</small> </span> </a>
+										<div class="cart-dropdown header-link-dropdown">
+											<ul class="cart-list link-dropdown-list">
+											  <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
+											    <figure> <a href="product-page.html" class="pull-left"> <img alt="Xpoge" src="{{ url_for('static', path='/images/1.jpg') }}"></a>
+											      <figcaption> <span><a href="product-page.html">Men's Full Sleeves Collar Shirt</a></span>
+											        <p class="cart-price">$14.99</p>
+											        <div class="product-qty">
+											          <label>Qty:</label>
+											          <div class="custom-qty">
+											            <input type="text" name="qty" maxlength="8" value="1" title="Qty" class="input-text qty">
+											          </div>
+											        </div>
+											      </figcaption>
+											    </figure>
+											  </li>
+											  <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
+											    <figure> <a href="product-page.html" class="pull-left"> <img alt="Xpoge" src="{{ url_for('static', path='/images/1.jpg') }}"></a>
+											      <figcaption> <span><a href="product-page.html">Women's Cape Jacket</a></span>
+											        <p class="cart-price">$14.99</p>
+											        <div class="product-qty">
+											          <label>Qty:</label>
+											          <div class="custom-qty">
+											            <input type="text" name="qty" maxlength="8" value="1" title="Qty" class="input-text qty">
+											          </div>
+											        </div>
+											      </figcaption>
+											    </figure>
+											  </li>
+											</ul>
+											<p class="cart-sub-totle"> <span class="pull-left">Итого</span> <span class="pull-right"><strong class="price-box">$29.98</strong></span> </p>
+											<div class="clearfix"></div>
+											<div class="mt-20"> <a href="cart.html" class="btn-color btn">Избранное</a> </div>
+										</div>
+					                </li>
+					              </ul>
+					            </div>
+				            </div>
+				        </div>
+					</div>
+				</div>
+			</header>
+			<!-- Header end -->
+{% block content %}
+{% endblock %}
+            <!-- Newslatter section start -->
+			<section class="newsletter-section align-center ptb-100">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-xl-7 col-lg-9 col-12">
+							<div class="newsletter-title">
+								<h2 class="main_title">Подписаться на рассылку</h2>
+								<p>Узнай о акциях первым!</p>
+							</div>
+							<div class="newsletter-input">
+								<form>
+									<div class="form-group m-0">
+										<input type="email" placeholder="Адрес почты" required="">
+									</div>
+									<button type="submit" class="btn btn-color"><span class="d-none d-sm-block">Подписаться</span> <i class="fa fa-send d-block d-sm-none"></i></button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Newslatter section end -->
+			<!-- Footer section start -->
+			<footer class="footer-part">
+				<div class="container">
+					<div class="footer-top ptb-100">
+						<div class="mb_-30">
+							<div class="row">
+								<div class="col-12 col-lg-3 col-md-6">
+									<div class="footer-about mb-sm-30">
+										<div class="footer-logo">
+											<a href="index.html">
+												<img src="{{ url_for('static', path='/images/logologo2.svg') }}" alt="logo">
+											</a>
+										</div>
+										<p class="footer-p">Fast Step специализируется на продаже кроссовок с выгодными скидками. Мы изучаем рынок, чтобы представить вам самые модные модели по самым привлекательным ценам.</p>
+									</div>
+								</div>
+								<div class="col-12 col-lg-3 col-md-6">
+									<div class="footer-static-block">
+										<a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="opener plus"></span></a>
+										<h3 class="head-three">Информация</h3> 
+										<div class="collapse" id="collapseExample">
+											<ul>
+												<li><a href="contact.html">Контакты</a></li>
+												<li><a href="javascript:void(0)">Бренды</a></li>
+												<li><a href="javascript:void(0)">Политика конфиденциальности</a></li>
+											</ul>
+										  </div>
+										<ul class="footer-menu footer-block-contant">
+											
+											<li><a href="contact.html">Контакты</a></li>
+											<li><a href="javascript:void(0)">Бренды</a></li>
+											<li><a href="javascript:void(0)">Политика конфиденциальности</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-12 col-lg-3 col-md-6">
+									<div class="footer-static-block">
+										<a data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"><span class="opener plus"></span></a>
+										<h3 class="head-three">Контакты</h3>
+										<div class="collapse" id="collapseExample2">
+											<ul>
+												<li>
+													<div class="contact-thumb">
+														<img style="width: 25px;" src="{{ url_for('static', path='/images/telegram.svg') }}" alt="xpoge">
+													</div>
+													<div class="contact-box-detail">
+														<a><p>@hibot</p></a>
+													</div>
+												</li>
+												<li>
+													<div class="contact-thumb">
+														<img style="width: 25px;" src="{{ url_for('static', path='/images/instagram.svg') }}" alt="xpoge">
+													</div>
+													<div class="contact-box-detail">
+														<a><p>@westbadgang</p></a>
+													</div>
+												</li>
+												<li>
+													<div class="contact-thumb">
+														<img src="{{ url_for('static', path='/images/mail-icon.svg') }}" alt="xpoge">
+													</div>
+													<div class="contact-box-detail">
+														<p>info@faststep.su</p>
+													</div>
+												</li>
+											</ul>
+										  </div>
+										<div class="contact-box footer-block-contant">
+											
+				                			<ul>
+				                				<li>
+				                					<div class="contact-thumb">
+				                						<img style="width: 25px;" src="{{ url_for('static', path='/images/telegram.svg') }}" alt="xpoge">
+				                					</div>
+				                					<div class="contact-box-detail">
+				                						<a><p>@hibot</p></a>
+				                					</div>
+				                				</li>
+				                				<li>
+				                					<div class="contact-thumb">
+				                						<img style="width: 25px;" src="{{ url_for('static', path='/images/instagram.svg') }}" alt="xpoge">
+				                					</div>
+				                					<div class="contact-box-detail">
+				                						<a><p>@westbadgang</p></a>
+				                					</div>
+				                				</li>
+				                				<li>
+				                					<div class="contact-thumb">
+				                						<img src="{{ url_for('static', path='/images/mail-icon.svg') }}" alt="xpoge">
+				                					</div>
+				                					<div class="contact-box-detail">
+				                						<p>info@faststep.su</p>
+				                					</div>
+				                				</li>
+				                			</ul>
+				                		</div>
+				                	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-bottom align-center">
+						<div class="row">
+							<div class="col-12">
+								<div class="w-100">
+									<p class="mb-0">©Fast Step</p>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="social-media">
+									<ul>
+										<li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
+										<li><a href="javascript:void(0)"><i class="fa fa-youtube"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+			<!-- Footer section end -->
+		</div>
+		<script src="{{ url_for('static', path='/js/jquery-3.4.1.min.js') }}"></script>
+		<script src="{{ url_for('static', path='/js/bootstrap.min.js') }}"></script>
+		<script src="{{ url_for('static', path='/js/owl.carousel.min.js') }}"></script>
+		<script src="{{ url_for('static', path='/js/jquery.magnific-popup.min.js') }}"></script>
+		<script src="{{ url_for('static', path='/js/custom.js') }}"></script>
+		<!-- <script>
+			/* ------------ Newslater-popup JS Start ------------- */
+				$(window).on('load', function(){
+					setTimeout(function(){
+					    jQuery.magnificPopup.open({
+					    items: {src: '#newslater-popup'},type: 'inline'}, 0);
+					},10000)
+				});
+		    /* ------------ Newslater-popup JS End ------------- */
+		</script> -->
+		
+	</body>
+
+</html>

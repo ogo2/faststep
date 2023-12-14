@@ -4,7 +4,7 @@ from models import *
 from typing import List
 # Выводим товар из бд
 async def get_product(session: AsyncSession) -> List['Product']:
-    result = await session.execute(select(Product))
+    result = await session.execute(select(Product).limit(10))
     return result.scalars().all()
 
 # Функция add_product просто помещает новый объект Product в сессию — мы будем управлять транзакцией в контроллере (маршрут).

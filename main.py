@@ -38,17 +38,11 @@ async def add_product(product: ProductSchema, session: AsyncSession = Depends(ge
     await session.commit()
     return product
     
-@app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+@app.get("/", response_class=HTMLResponse, response_model=List[ProductSchema])
+async def index(request: Request, session: AsyncSession = Depends(get_session)):
+    products = await service.get_product(session)
+    return templates.TemplateResponse("index.html", {"request": request, 'products': products})
 
-
-
-# @app.get('/admin/add/')
-# async def new_product(product: ProductSchema):
-#     return product(name='Licka',
-#                    photo_path='https://s7d2.scene7.com/is/image/aeo/0414_6176_256_of?$pdp-m-opt$',
-#                    price=12.2,
-#                    old_price=22.1,
-#                    url_product='https://www.ae.com/ca/en/p/women/shoes/sneakers/ae-embroidered-platform-sneaker/0414_6176_256?menu=cat4840004',
-#                    sex='men')
+@app.get('/admin', response_class=HTMLResponse)
+async def add_product_page(request: Request):
+    return templates.TemplateResponse("admin.html", {'request': request})
