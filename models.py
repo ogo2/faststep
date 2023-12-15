@@ -31,6 +31,7 @@ class Product(Base):
     stars = Column(ARRAY(Integer), nullable=True)
     date = Column(DateTime(), nullable=False, default=datetime.utcnow)
     sex = Column(String(20), nullable=False)
+    brand = Column(String(120), nullable=False)
     
 class History(Base):
     __tablename__ = 'history'

@@ -111,7 +111,7 @@
 	                		<div class="product-item">
 	                			<div class="product-image">
 	                				<div class="sale-label"><span>Sale</span></div>
-	                				<a href="product-page.html">
+	                				<a href="/shoes/{{p.name}}/{{p.id}}">
 		                				<img src="{{p.photo_path}}" alt="Xpoge">
 		                			</a>
 	                			</div>
@@ -121,14 +121,14 @@
 		                					<a href="product-page.html">{{p.name}}</a>
 		                				</div>
 		                				<div class="price-box">
-		                					<span class="price">₽{{p.price}}</span>
-		                					<del class="price old-price">₽{{p.old_price}}</del>
+		                					<span class="price">{{p.price}} ₽</span>
+		                					<del class="price old-price">₽{{p.old_price}} ₽</del>
 		                				</div>
 		                			</div>
 		                			<div class="product-details-btn">
 		                				<ul>
 		                					<li class="icon cart-icon">
-		                						<a href="cart.html">
+		                						<a href="{{p.url_product}}">
 		                							<span></span>
 		                						</a>
 		                					</li>

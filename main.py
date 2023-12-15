@@ -12,6 +12,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List
 from fastapi import Depends
 from base import get_session
+
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -43,6 +44,20 @@ async def index(request: Request, session: AsyncSession = Depends(get_session)):
     products = await service.get_product(session)
     return templates.TemplateResponse("index.html", {"request": request, 'products': products})
 
+@app.get('/shoes', response_class=HTMLResponse, response_model=List[ProductSchema])
+async def product_list(request: Request, session: AsyncSession=Depends(get_session)):
+    products = await service.get_product(session)
+    brand = await service.get_brand_name(session)
+    # count_brand = await service.get_product_count(session)
+    return templates.TemplateResponse("shop.html", {"request": request, 'products': products, 'brand': brand})
+
+@app.get('/shoes/{name_product}/{id_product}', response_class=HTMLResponse, response_model=List[ProductSchema])
+async def product_page(name_product: str, id_product: int,  request: Request, session: AsyncSession=Depends(get_session)):
+    product = await service.get_product_page(session, id_product)
+    return templates.TemplateResponse("product-page.html", {"request": request, 'product': product, 'name_product': name_product})
+
 @app.get('/admin', response_class=HTMLResponse)
 async def add_product_page(request: Request):
     return templates.TemplateResponse("admin.html", {'request': request})
+
+

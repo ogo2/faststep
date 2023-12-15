@@ -471,6 +471,7 @@ select.full {
 /* - Spacer Style  //---------------- */
 
 .right-side {
+	padding: 21px 0;
 	float: right;
 }
 .left-side {
@@ -822,7 +823,7 @@ header {
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding: 21px 0;
+	/* padding: 21px 0; */
 	transition: all 0.25s ease 0s;
 	-moz-transition: all 0.25s ease 0s;
 	-webkit-transition: all 0.25s ease 0s;
