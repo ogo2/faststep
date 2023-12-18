@@ -1,0 +1,164 @@
+{% extends 'header.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+			<!-- Banner start -->
+	        <section id="banner-part" class="menu-section pb-100">
+	        	<div class="banner main-banner owl-carousel">
+	        		<div class="banner-1">
+	        			<img src="{{ url_for('static', path='/images/nike_force.png') }}" alt="Xpoge">
+						<div class="banner-detail">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<div class="banner-detail-inner">
+											<span class="subtitle1">Women Style</span>
+											<h1 class="banner-title">Big sale</h1>
+											<div class="subtitle2">
+												<span class="part1">Summer</span>
+												<span class="part2">Collection</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="banner-2">
+	        			<img src="{{ url_for('static', path='/images/nike_force.png') }}" alt="Xpoge">
+						<div class="banner-detail">
+							<div class="container">
+								<div class="row">
+									<div class="col-12">
+										<div class="banner-detail-inner">
+											<span class="subtitle1">Up to 40% Off</span>
+											<h1 class="banner-title">Men Suit</h1>
+											<div class="subtitle2">
+												<span class="part1">New</span>
+												<span class="part2">Collection</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	        </section>
+	        <!-- Banner end -->
+
+	        <!-- Sub banner section Start -->
+	        <div class="sub-banner-part pb-100">
+	        	<div class="container">
+	        		<div class="row">
+	        			<div class="col-md-4">
+	        				<div class="sub-banner-box">
+	        					<a href="/shoes">
+	        						<img class="d-none d-md-block" src="{{ url_for('static', path='/images/Rectangle 338banner_one.svg') }}" alt="Xpoge">
+	        						<img class="d-block d-md-none" src="{{ url_for('static', path='/images/Group 291.png') }}" alt="Xpoge">
+	        					</a>
+	        				</div>
+	        			</div>
+	        			<div class="col-md-8">
+	        				<div class="row">
+	        					<div class="col-md-8">
+	        						<div class="sub-banner-box">
+			        					<a href="/shoes">
+			        						<img class="d-none d-md-block" src="{{ url_for('static', path='/images/Rectangle 340banner_two.svg') }}" alt="Xpoge">
+			        						<img class="d-block d-md-none" src="{{ url_for('static', path='/images/Group 302.png') }}" alt="Xpoge">
+			        					</a>
+			        				</div>
+	        					</div>
+	        					<div class="col-md-4">
+	        						<div class="sub-banner-box">
+			        					<a href="/shoes">
+			        						<img class="d-none d-md-block" src="{{ url_for('static', path='/images/Rectangle 339banner_5.svg') }}" alt="Xpoge">
+			        						<img class="d-block d-md-none" src="{{ url_for('static', path='/images/Group 313.png') }}" alt="Xpoge">
+			        					</a>
+			        				</div>
+	        					</div>
+	        				</div>
+	        				<div class="row">
+	        					<div class="col-12">
+	        						<div class="sub-banner-box">
+			        					<a href="/shoes">
+			        						<img class="d-none d-md-block" src="{{ url_for('static', path='/images/Group 28banner_5.svg') }}" alt="Xpoge">
+			        						<img class="d-block d-md-none" src="{{ url_for('static', path='/images/Group 324.png') }}" alt="Xpoge">
+			        					</a>
+			        				</div>
+	        					</div>
+	        				</div>
+	        			</div>
+	        		</div>
+	        	</div>
+	        </div>
+	        <!-- Sub banner section End -->
+
+			
+
+			<!-- Product Section Start -->
+			<section class="product-section pb-100">
+				<div class="container">
+					<div class="row">
+	                	<div class="col-12">
+	                    	<div class="heading-part text-center mb-30 mb-sm-20">
+	                        	<h2 class="main_title">Рекомендуем</h2>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="row">
+						{% for p in products %}
+	                	<div class="col-lg-3 col-md-4 col-6">
+	                		<div class="product-item">
+	                			<div class="product-image">
+	                				<div class="sale-label"><span>Sale</span></div>
+	                				<a href="/shoes/{{p.name}}/{{p.id}}">
+		                				<img src="{{p.photo_path}}" alt="Xpoge">
+		                			</a>
+	                			</div>
+	                			<div class="product-details-outer">
+		                			<div class="product-details">
+		                				<div class="product-title">
+		                					<a href="product-page.html">{{p.name}}</a>
+		                				</div>
+		                				<div class="price-box">
+		                					<span class="price">{{p.price}} ₽</span>
+		                					<del class="price old-price">₽{{p.old_price}} ₽</del>
+		                				</div>
+		                			</div>
+		                			<div class="product-details-btn">
+		                				<ul>
+		                					<li class="icon cart-icon">
+		                						<a href="{{p.url_product}}">
+		                							<span></span>
+		                						</a>
+		                					</li>
+		                					<li class="icon wishlist-icon">
+		                						<a href="wishlist.html">
+		                							<span></span>
+		                						</a>
+		                					</li>
+		                					<li class="icon compare-icon">
+		                						<a href="javascript:void(0)">
+		                							<span></span>
+		                						</a>
+		                					</li>
+		                				</ul>
+		                			</div>
+	                			</div>
+	                		</div>
+	                	</div>
+						{% endfor %}
+	                </div>
+	                <div class="row">
+	                	<div class="col-12">
+	                		<div class="align-center">
+	                			<a href="/shoes" class="btn btn-color">Каталог</a>
+	                		</div>
+	                	</div>
+	                </div>
+				</div>
+			</section>
+			<!-- Product Section End -->
+{% endblock %}
+			
+			

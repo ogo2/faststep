@@ -1,0 +1,250 @@
+{% extends 'header.html' %}
+{% block title %}Кроссовки{% endblock %}
+{% block content %}
+
+			<!-- Product list contant start -->
+			<div class="contant">
+				<div id="banner-part" class="banner inner-banner">
+					<div class="container">
+						<div class="bread-crumb-main">
+							<h1 class="banner-title">Магазин</h1>
+							<div class="breadcrumb">
+			                    <ul class="inline">
+			                        <li><a href="/">Главная</a></li>
+			                        <li>Кроссовки</li>
+			                    </ul>
+			                </div>
+		                </div>
+					</div>
+				</div>
+				<div class="ptb-100">
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-lg-4 col-xl-3">
+								<div class="sidebar mb-md-30">
+	                                <div class="sidebar-category sidebar-default">
+	                                    <div class="category-content">
+                                            <h2 class="cat-title">Категории</h2>
+                                            <ul class="pl-0 mb-0">
+                                                <li><a href="#">Мужчинам</a></li>
+                                                <li><a href="#">Женщинам</a></li>
+                                            </ul>
+	                                    </div>
+	                                </div>
+	                                <div class="sidebar-default">
+	                                    <div class="category-content">
+	                                        <h2 class="cat-title">Фильтры</h2>
+	                                        <a class="btn btn-color small btn-filter mb-20" href="#"><i class="fa fa-close"></i><span>Очистить</span></a>
+	                                        <div class="mb-20">
+						                    	<div class="inner-title">Бренд</div>
+												<div data-bs-spy="scroll" style='height: 200px;overflow: auto;' data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+													<ul>
+														{% for name, count in brand %}
+														<li>
+														<div class="check-box"> 
+															<span>
+															<input type="checkbox" class="checkbox" id="{{name}}_filtr" name="{{name}}_filtr">
+															
+															<label for="{{name}}_filtr">{{name|capitalize()}}<span>({{count}})</span></label>
+															</span>
+														</div>
+														</li>
+														{% endfor %}
+													</ul>
+												</div>
+						                    </div>
+						                    <div class="mb-20">
+						                    	<div class="inner-title">Цена</div>
+												<div data-bs-spy="scroll" style='height: 200px;overflow: auto;' data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+
+													<ul>
+														<li>
+															<div class="check-box"> 
+															<span>
+																<input type="checkbox" class="checkbox" id="price1" name="price1">
+																<label for="price1">₽1 000 - ₽5 000 <span>(02)</span></label>
+															</span>
+															</div>
+														</li>
+														<li>
+														<div class="check-box"> 
+															<span>
+															<input type="checkbox" class="checkbox" id="price1" name="price1">
+															<label for="price1">₽5 000 - ₽10 000 <span>(02)</span></label>
+															</span>
+														</div>
+														</li>
+														<li>
+														<div class="check-box"> 
+															<span>
+															<input type="checkbox" class="checkbox" id="price2" name="price2">
+															<label for="price2">₽10 000 - ₽15 000 <span>(13)</span></label>
+															</span>
+														</div>
+														</li>
+														<li>
+														<div class="check-box"> 
+															<span>
+															<input type="checkbox" class="checkbox" id="price3" name="price3">
+															<label for="price3">₽15 000 - ₽20 000 <span>(08)</span></label>
+															</span>
+														</div>
+														</li>
+														
+													</ul>
+												</div>
+						                    </div>
+	                                    </div>
+	                                </div>
+	                                <div class="sidebar-default sidebar-banner d-none d-lg-block">
+                                		<a href="javascript:void(0)">
+                                			<img src="{{ url_for('static', path='/images/Group 33.png') }}" alt="Xpoge">
+                                		</a>
+	                                </div>
+									<div class="sidebar-default sidebar-banner d-none d-lg-block">
+                                		<a href="javascript:void(0)">
+                                			<img src="{{ url_for('static', path='/images/Group 33.png') }}" alt="Xpoge">
+                                		</a>
+	                                </div>
+	                                <div class="sidebar-default">
+	                                    <div class="sidebar-product">
+	                                        <h2 class="cat-title">Latest products</h2>
+	                                        <ul>
+								                <li>
+								                    <div class="pro-media"> <a href="product-page.html"><img alt="Xpoge" src="images/1.jpg"></a> </div>
+								                    <div class="pro-detail-info"> <a href="product-page.html" class="product-title">Women's Cotton Plain T-Shirts</a>
+								                      <div class="price-box">
+								                      	<span class="price">$65.23</span>
+								                      	<del class="price old-price">$70.00</del>
+								                      </div>
+								                      <div class="cart-link">
+								                        <form>
+								                          <button title="Add to Cart">Add To Cart</button>
+								                        </form>
+								                      </div>
+								                    </div>
+								                </li>
+								                <li>
+								                    <div class="pro-media"> <a href="product-page.html"><img alt="T-shirt" src="images/2.jpg"></a> </div>
+								                    <div class="pro-detail-info"> <a href="product-page.html" class="product-title">Men's Printed Regular Shirt</a>
+								                      <div class="price-box"> <span class="price">$80.00</span> </div>
+								                      <div class="cart-link">
+								                        <form>
+								                          <button title="Add to Cart">Add To Cart</button>
+								                        </form>
+								                      </div>
+								                    </div>
+								                </li>
+								                <li>
+								                    <div class="pro-media"> <a href="product-page.html"><img alt="T-shirt" src="images/3.jpg"></a> </div>
+								                    <div class="pro-detail-info"> <a href="product-page.html" class="product-title">Black African Print</a>
+								                      <div class="price-box"> <span class="price">$80.00</span> </div>
+								                      <div class="cart-link">
+								                        <form>
+								                          <button title="Add to Cart">Add To Cart</button>
+								                        </form>
+								                      </div>
+								                    </div>
+								                </li>
+							                </ul>
+	                                    </div>
+	                                </div>
+		                        </div>
+							</div>
+							<div class="col-12 col-lg-8 col-xl-9">
+								<div class="shorting mb-30">
+						            <div class="row">
+						              <div class="col-lg-6">
+						                
+						                <div class="short-by float-right-md"> <span>Сортировать по</span>
+						                  <div class="select-item">
+						                    <select>
+						                      <option value="" selected="selected">Имя (А - Я)</option>
+						                      <option value="">Имя (Я - А)</option>
+						                      <option value="">Цена (мин. - макс.)</option>
+						                      <option value="">Цена (макс. - мин.)</option>
+						                    </select>
+						                  </div>
+						                </div>
+						              </div>
+						              <div class="col-lg-6">
+						                <div class="show-item right-side float-left-md"> 
+						                  
+						                  <div class="compare float-right-sm"> <a href="#" class="btn btn-color">Искать</a> </div>
+						                </div>
+						              </div>
+						            </div>
+						        </div>
+								<div class="product-section grid-view">
+									<div class="row">
+										{% for p in products %}
+					                	<div class="col-lg-4 col-md-4 col-6">
+					                		<div class="product-item">
+					                			<div class="product-image">
+					                				<div class="sale-label"><span>Sale</span></div>
+					                				<a href="/shoes/{{p.name}}/{{p.id}}">
+						                				<img src="{{p.photo_path}}" alt="Xpoge">
+						                			</a>
+					                			</div>
+					                			<div class="product-details-outer">
+						                			<div class="product-details">
+						                				<div class="product-title">
+						                					<a href="product-page.html">{{p.name}}</a>
+						                				</div>
+						                				<div class="price-box">
+						                					<span class="price">{{p.price}} ₽</span>
+						                					<del class="price old-price">{{p.old_price}} ₽</del>
+						                				</div>
+						                			</div>
+						                			<div class="product-details-btn">
+						                				<ul>
+						                					<li class="icon cart-icon">
+						                						<a href="{{p.url_product}}">
+						                							<span></span>
+						                						</a>
+						                					</li>
+						                					<li class="icon wishlist-icon">
+						                						<a href="wishlist.html">
+						                							<span></span>
+						                						</a>
+						                					</li>
+						                				</ul>
+						                			</div>
+					                			</div>
+					                		</div>
+					                	</div>
+										{% endfor %}
+					                </div>
+								</div>
+								<div class="shorting center-md">
+						            <div class="row">
+						              <div class="col-lg-6">
+						                <div class="pagination-bar">
+					                      <ul>
+											<li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+											{% for i in dictionary%}
+												{% if i == page %}
+													<li class="active"><a href="/shoes?page={{page}}">{{i}}</a></li>
+												{% else %}
+												<li><a href="/shoes?page={{i}}">{{i}}</a></li>
+												{% endif %}
+											{% endfor %}
+											<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+
+					                      </ul>
+					                    </div>
+						              </div>
+						              <div class="col-lg-6">
+						                <div class="show-item right-side float-none-md"> 
+						                	<span class="float-none-md d-block">1 из {{product_all}}</span>
+						                </div>
+						              </div>
+						            </div>
+						        </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Product list contant end -->
+			{% endblock %}
