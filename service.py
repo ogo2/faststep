@@ -3,10 +3,17 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from models import *
 from typing import List
 from sqlalchemy import func
-
 # Выводим товар из бд
 async def get_product(session: AsyncSession) -> List['Product']:
     result = await session.execute(select(Product).limit(12))
+    return result.scalars().all()
+
+async def get_product_pag(session: AsyncSession, skip, limit) -> List['Product']:
+    result = await session.execute(select(Product).offset(skip).limit(limit))
+    return result.scalars().all()
+
+async def get_product_all(session: AsyncSession) -> List['Product']:
+    result = await session.execute(select(Product))
     return result.scalars().all()
 
 async def get_product_page(session: AsyncSession, id: int) -> List['Product']:
@@ -14,9 +21,13 @@ async def get_product_page(session: AsyncSession, id: int) -> List['Product']:
     return result.scalars().all()
 
 async def get_brand_name(session: AsyncSession) -> List['Product']:
-    result = await session.execute(select([func.count(Product.brand)], Product.brand)).group_by(Product.brand)
-    print(result.scalars().all() )
-    return result.scalars().all() 
+    result = await session.execute(select(Product.brand, func.count(Product.brand).label("brand_count")).group_by(Product.brand).order_by(func.count(Product.brand).desc()))
+    data = result.all()
+    for i in range(len(data)):
+        data[i] = list(data[i])
+        if data[i][0][0] == "'":
+            data[i][0] = data[i][0].strip("''")
+    return data
 
 # Функция add_product просто помещает новый объект Product в сессию — мы будем управлять транзакцией в контроллере (маршрут).
 def add_product(session: AsyncSession, 
