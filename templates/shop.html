@@ -10,7 +10,7 @@
 							<h1 class="banner-title">Магазин</h1>
 							<div class="breadcrumb">
 			                    <ul class="inline">
-			                        <li><a href=".">Главная</a></li>
+			                        <li><a href="/">Главная</a></li>
 			                        <li>Кроссовки</li>
 			                    </ul>
 			                </div>
@@ -37,67 +37,73 @@
 	                                        <a class="btn btn-color small btn-filter mb-20" href="#"><i class="fa fa-close"></i><span>Очистить</span></a>
 	                                        <div class="mb-20">
 						                    	<div class="inner-title">Бренд</div>
-							                    <ul>
-													{% for b in brand %}
-							                        <li>
-							                          <div class="check-box"> 
-							                            <span>
-							                              <input type="checkbox" class="checkbox" id="type1" name="type1">
-							                              <label for="type1">{{b}}<span>({{b}})</span></label>
-							                            </span>
-							                          </div>
-							                        </li>
-													{% endfor %}
-							                    </ul>
+												<div data-bs-spy="scroll" style='height: 200px;overflow: auto;' data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+													<ul>
+														{% for name, count in brand %}
+														<li>
+														<div class="check-box"> 
+															<span>
+															<input type="checkbox" class="checkbox" id="{{name}}_filtr" name="{{name}}_filtr">
+															
+															<label for="{{name}}_filtr">{{name|capitalize()}}<span>({{count}})</span></label>
+															</span>
+														</div>
+														</li>
+														{% endfor %}
+													</ul>
+												</div>
 						                    </div>
 						                    <div class="mb-20">
 						                    	<div class="inner-title">Цена</div>
-							                    <ul>
-													<li>
+												<div data-bs-spy="scroll" style='height: 200px;overflow: auto;' data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+
+													<ul>
+														<li>
+															<div class="check-box"> 
+															<span>
+																<input type="checkbox" class="checkbox" id="price1" name="price1">
+																<label for="price1">₽1 000 - ₽5 000 <span>(02)</span></label>
+															</span>
+															</div>
+														</li>
+														<li>
 														<div class="check-box"> 
-														  <span>
+															<span>
 															<input type="checkbox" class="checkbox" id="price1" name="price1">
-															<label for="price1">₽1 000 - ₽5 000 <span>(02)</span></label>
-														  </span>
+															<label for="price1">₽5 000 - ₽10 000 <span>(02)</span></label>
+															</span>
 														</div>
-													  </li>
-							                        <li>
-							                          <div class="check-box"> 
-							                            <span>
-							                              <input type="checkbox" class="checkbox" id="price1" name="price1">
-							                              <label for="price1">₽5 000 - ₽10 000 <span>(02)</span></label>
-							                            </span>
-							                          </div>
-							                        </li>
-							                        <li>
-							                          <div class="check-box"> 
-							                            <span>
-							                              <input type="checkbox" class="checkbox" id="price2" name="price2">
-							                              <label for="price2">₽10 000 - ₽15 000 <span>(13)</span></label>
-							                            </span>
-							                          </div>
-							                        </li>
-							                        <li>
-							                          <div class="check-box"> 
-							                            <span>
-							                              <input type="checkbox" class="checkbox" id="price3" name="price3">
-							                              <label for="price3">₽15 000 - ₽20 000 <span>(08)</span></label>
-							                            </span>
-							                          </div>
-							                        </li>
-							                        
-							                    </ul>
+														</li>
+														<li>
+														<div class="check-box"> 
+															<span>
+															<input type="checkbox" class="checkbox" id="price2" name="price2">
+															<label for="price2">₽10 000 - ₽15 000 <span>(13)</span></label>
+															</span>
+														</div>
+														</li>
+														<li>
+														<div class="check-box"> 
+															<span>
+															<input type="checkbox" class="checkbox" id="price3" name="price3">
+															<label for="price3">₽15 000 - ₽20 000 <span>(08)</span></label>
+															</span>
+														</div>
+														</li>
+														
+													</ul>
+												</div>
 						                    </div>
 	                                    </div>
 	                                </div>
 	                                <div class="sidebar-default sidebar-banner d-none d-lg-block">
                                 		<a href="javascript:void(0)">
-                                			<img src="images/Group 33.png" alt="Xpoge">
+                                			<img src="{{ url_for('static', path='/images/Group 33.png') }}" alt="Xpoge">
                                 		</a>
 	                                </div>
 									<div class="sidebar-default sidebar-banner d-none d-lg-block">
                                 		<a href="javascript:void(0)">
-                                			<img src="images/Group 33.png" alt="Xpoge">
+                                			<img src="{{ url_for('static', path='/images/Group 33.png') }}" alt="Xpoge">
                                 		</a>
 	                                </div>
 	                                <div class="sidebar-default">
@@ -215,17 +221,24 @@
 						              <div class="col-lg-6">
 						                <div class="pagination-bar">
 					                      <ul>
-					                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-					                        <li class="active"><a href="#">1</a></li>
-					                        <li><a href="#">2</a></li>
-					                        <li><a href="#">3</a></li>
-					                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+											<li><a href="/shoes?page={{1}}"><i class="fa fa-angle-left"></i></a></li>
+											{% for i in dictionary%}
+												{% if i < page + 5 and i >= page %}
+													{% if i == page %}
+														<li class="active"><a href="/shoes?page={{page}}">{{i}}</a></li>
+													{% elif page < product_all %}
+														<li><a href="/shoes?page={{i}}">{{i}}</a></li>
+													{% endif %}
+												{% endif %}
+											{% endfor %}
+											<li><a href="/shoes?page={{product_all}}"><i class="fa fa-angle-right"></i></a></li>
+
 					                      </ul>
 					                    </div>
 						              </div>
 						              <div class="col-lg-6">
 						                <div class="show-item right-side float-none-md"> 
-						                	<span class="float-none-md d-block">1 из 15</span>
+						                	<span class="float-none-md d-block">1 из {{product_all}}</span>
 						                </div>
 						              </div>
 						            </div>

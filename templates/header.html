@@ -10,6 +10,7 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/xpoge.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/responsive.css') }}">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -76,8 +77,8 @@
 						                    <ul class="link-dropdown-list">
 						                      <li> <span class="dropdown-title">Добро пожаловать в Fast Step</span>
 						                        <ul>
-						                          <li><a href="login.html">Войти</a></li>
-						                          <li><a href="register.html">Создать новый аккаунт</a></li>
+						                          <li><a href="/login">Войти</a></li>
+						                          <li><a href="/register">Создать новый аккаунт</a></li>
 						                        </ul>
 						                      </li>
 						                    </ul>
@@ -279,16 +280,14 @@
 		<script src="{{ url_for('static', path='/js/owl.carousel.min.js') }}"></script>
 		<script src="{{ url_for('static', path='/js/jquery.magnific-popup.min.js') }}"></script>
 		<script src="{{ url_for('static', path='/js/custom.js') }}"></script>
-		<!-- <script>
+		<script>
 			/* ------------ Newslater-popup JS Start ------------- */
-				$(window).on('load', function(){
-					setTimeout(function(){
-					    jQuery.magnificPopup.open({
-					    items: {src: '#newslater-popup'},type: 'inline'}, 0);
-					},10000)
-				});
+			const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+				target: '#navbar-example'
+			  })
+			  
 		    /* ------------ Newslater-popup JS End ------------- */
-		</script> -->
+		</script>
 		
 	</body>
 
