@@ -14,7 +14,7 @@ class User(Base):
     __tablename__='users'
     id = Column(Integer(), primary_key=True, autoincrement=True)
     name = Column(String(120), nullable=False)
-    phone = Column(String(15), nullable=False)
+    phone = Column(String(18), nullable=False)
     email = Column(String(120), nullable=False)
     password = Column(String(220), nullable=False)
     product_list = Column(ARRAY(Integer), nullable=True)

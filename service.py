@@ -3,6 +3,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from models import *
 from typing import List
 from sqlalchemy import func
+from datetime import datetime
+
+
 # Выводим товар из бд
 async def get_product(session: AsyncSession) -> List['Product']:
     result = await session.execute(select(Product).limit(12))
@@ -19,6 +22,15 @@ async def get_product_all(session: AsyncSession) -> List['Product']:
 async def get_product_page(session: AsyncSession, id: int) -> List['Product']:
     result = await session.execute(select(Product).where(Product.id==id))
     return result.scalars().all()
+
+async def register_user(session: AsyncSession, name: str, phone: str, email: str, password: str)->List['User']:
+    new_user = User(name=name,
+                    phone=phone,
+                    email=email,
+                    password=password,
+                    date_registr=datetime.now())
+    session.add(new_user)
+    return new_user
 
 async def get_brand_name(session: AsyncSession) -> List['Product']:
     result = await session.execute(select(Product.brand, func.count(Product.brand).label("brand_count")).group_by(Product.brand).order_by(func.count(Product.brand).desc()))

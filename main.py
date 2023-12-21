@@ -16,7 +16,7 @@ from fastapi_pagination import Page, add_pagination, paginate
 from typing_extensions import Annotated
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
-
+import secrets
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
@@ -27,7 +27,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-def hash_password(password: str):
+async def hash_password(password: str):
     return pwd_context.hash(password)
 
 class ProductSchema(BaseModel):
@@ -43,8 +43,10 @@ class UserSchema(BaseModel):
     phone: str
     email: str
     password: str
-    product_list: list
-    date_registr: str
+    repeat_password: str
+    remember_me: Union[str, None] = None
+    product_list: Union[str, None] = None
+    date_registr: Union[str, None] = None
 
 
 # сессия может быть внедрена (инжектирована) с помощью Depends. Таким образом, вызов каждого из маршрутов создаст новую сессию. 
@@ -92,7 +94,22 @@ async def register(request: Request, session: AsyncSession=Depends(get_session))
     return templates.TemplateResponse('register.html', {'request': request})
 
 
-@app.post('/register')
-async def register_user(username: str = Form(), password: str = Form()):
-    hashed_password = hash_password(password)
-    return {"username": username, 'hashed_password': hashed_password}
+@app.post('/register', response_model=UserSchema)
+async def register_token(user: UserSchema): 
+    # token = secrets.token_hex(16)
+    # hashed_password = await hash_password(password)
+    # user(name=username,
+    #      email=email,
+    #      phone=phone,
+    #      password=hashed_password)
+    # print(user.name)
+    return user
+
+
+# @app.get('/register/{token}')
+# async def register_user(user: UserSchema, session: AsyncSession=Depends(get_session), token: str = token):
+    
+#     hashed_password = await hash_password(password)
+#     add_user = await service.register_user(session, username, phone, email, password)
+#     await session.commit()
+#     return add_user
