@@ -21,7 +21,7 @@
 					<div class="container">
 						<div class="row justify-content-center">
 				            <div class="col-xl-6 col-lg-8 col-md-8 ">
-				              <form class="main-form full" method='post' action='register'>
+				              <form class="main-form full" method='post' action='/register'>
 				                <div class="row">
 				                  <div class="col-12 mb-20">
 				                    <div class="heading-part align-center">
@@ -31,31 +31,35 @@
 				                  <div class="col-12">
 				                    <div class="form-group">
 				                      <label for="f-name">Имя</label>
-				                      <input type="text" id="username" required name='username' placeholder="Введите своё имя">
+				                      <input type="text" id="username" required name='name' placeholder="Введите своё имя">
 				                    </div>
 				                  </div>
 								  <div class="col-12">
 				                    <div class="form-group">
 				                      <label for="login-email">Номер телефона</label>
-				                      <input id="phone-input" required type="text" name='phone' placeholder="+7 (___) ___-____">
+				                      <input id="phone-input" required type="text" name='phone' placeholder="+7 (___) ___-__-__">
+									  <span id="error-message_phone" style="color: red;"></span>
 				                    </div>
 				                  </div>
 				                  <div class="col-12">
 				                    <div class="form-group">
 				                      <label for="login-email">Email</label>
-				                      <input id="login-email" required type="email" name='email' placeholder="Введите свой email">
+				                      <input id="email" required type="email" name='email' placeholder="Введите свой email">
+									  <span id="emailError" style="color: red;"></span>
 				                    </div>
 				                  </div>
 				                  <div class="col-12">
 				                    <div class="form-group">
-				                      <label for="login-pass">Пароль</label>
-				                      <input id="login-pass" required type="password"  name='password' placeholder="Придумайте пароль">
+				                      <label for="password">Пароль</label>
+				                      <input id="password" required type="password"  name='password' placeholder="Придумайте пароль">
+									  <span id="error-message" style="color: red;"></span>
 				                    </div>
 				                  </div>
 				                  <div class="col-12">
 				                    <div class="form-group">
 				                      <label for="re-enter-pass">Повторить пароль</label>
-				                      <input id="re-enter-pass" required type="password"  name='repeat_password' placeholder="Повторите пароль">
+				                      <input id="repeat_password" required type="password"  name='repeat_password' placeholder="Повторите пароль">
+									  <span id="error-message_repeat" style="color: red;"></span>
 				                    </div>
 				                  </div>
 				                  <div class="col-12">
@@ -66,7 +70,7 @@
 					                        <label for="remember_me" class="mb-0">Подписаться на новости и скидки</label>
 					                      </span>
 					                    </div>
-					                    <button name="submit" type="submit" class="btn-color right-side">Зарегистрироваться</button>
+					                    <button id='submit_register' type="submit" class="btn-color right-side">Зарегистрироваться</button>
 				                    </div>
 				                  </div>
 				                  <div class="col-12">
@@ -82,100 +86,6 @@
 				</div>
 			</div>
 			<!-- Register contant end -->
-			<script>
-				$(document).ready(function() {
-					// Получаем элемент input по его id
-					var phoneInput = $('#phone-input');
-
-					// Устанавливаем код страны при нажатии на поле ввода
-					phoneInput.click(function() {
-						// Проверяем, если код страны уже установлен, то не меняем его
-						if (!phoneInput.val().startsWith('+7')) {
-						phoneInput.val('+7');
-						}
-					});
-					$('#phone-input').on('input', function() {
-					  var number = $(this).val().replace(/[^\d]/g, ''); // Удаляем все символы кроме цифр
-					  var formattedNumber = formatNumber(number); // Форматируем номер 
-				  
-					  $(this).val(formattedNumber); // Вставляем отформатированный номер обратно в поле ввода
-					});
-				  
-					function formatNumber(number) {
-					  var formattedNumber = '';
-				  
-					  if (number.length > 0) {
-						formattedNumber += '+'; // Добавляем символ "+"
-					  }
-				  
-					  if (number.length >= 1) {
-						formattedNumber += '7 '; // Добавляем код страны "7" с пробелом
-					  }
-				  
-					  if (number.length >= 2) {
-						formattedNumber += '(' + number.substring(1, 4); // Добавляем открывающуюся скобку и первую цифру номера телефона
-					  }
-				  
-					  if (number.length >= 5) {
-						formattedNumber += ') ' + number.substring(4, 7); // Добавляем закрывающуюся скобку и следующие 3 цифры номера телефона
-					  }
-				  
-					  if (number.length >= 8) {
-						formattedNumber += '-' + number.substring(7, 9); // Добавляем тире и две последние цифры номера телефона
-					  }
-				  
-					  if (number.length >= 10) {
-						formattedNumber += '-' + number.substring(9, 11); // Добавляем тире и две последние цифры номера телефона
-					  }
-				  
-					  return formattedNumber;
-					}
-				  });
-			  </script>
+			
 			{% endblock %}
-			<script>
-				$(document).ready(function() {
-				  $('#phone-input').on('input', function() {
-					let currentValue = $(this).val();
-					let newValue = formatPhoneNumber(currentValue);
-					$(this).val(newValue);
-				  });
-				});
-				
-				function formatPhoneNumber(value) {
-				  let formattedValue = value.replace(/\D/g, '');
-				  let matches = formattedValue.match(/^(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})$/);
-				  
-				  let parts = [];
-				  
-				  if (matches) {
-					let countryCode = matches[1];
-					let firstSegment = matches[2];
-					let secondSegment = matches[3];
-					let thirdSegment = matches[4];
-					let fourthSegment = matches[5];
-					
-					if (countryCode) {
-					  parts.push('+' + countryCode);
-					}
-					
-					if (firstSegment) {
-					  parts.push(firstSegment);
-					}
-					
-					if (secondSegment) {
-					  parts.push(secondSegment);
-					}
-					
-					if (thirdSegment) {
-					  parts.push(thirdSegment);
-					}
-					
-					if (fourthSegment) {
-					  parts.push(fourthSegment);
-					}
-				  }
-				  
-				  return parts.join(' ');
-				}
-			  </script>
+			
