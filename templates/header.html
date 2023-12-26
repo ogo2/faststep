@@ -280,7 +280,8 @@
 		<script src="{{ url_for('static', path='/js/owl.carousel.min.js') }}"></script>
 		<script src="{{ url_for('static', path='/js/jquery.magnific-popup.min.js') }}"></script>
 		<script src="{{ url_for('static', path='/js/custom.js') }}"></script>
-		<script src="{{ url_for('static', path='/js/valid_register.js') }}"></script>
+		{% block script %}{% endblock %}
+		
 		<script>
 			/* ------------ Newslater-popup JS Start ------------- */
 			const scrollSpy = new bootstrap.ScrollSpy(document.body, {
