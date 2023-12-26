@@ -1,6 +1,6 @@
 import sqlalchemy as db
 import psycopg2
-from sqlalchemy import create_engine, MetaData, Table, Integer, String, ARRAY, Float, Column, DateTime, ForeignKey, Numeric, SmallInteger, Text
+from sqlalchemy import Boolean, create_engine, MetaData, Table, Integer, String, ARRAY, Float, Column, DateTime, ForeignKey, Numeric, SmallInteger, Text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import insert
@@ -18,7 +18,9 @@ class User(Base):
     email = Column(String(120), nullable=False)
     password = Column(String(220), nullable=False)
     product_list = Column(ARRAY(Integer), nullable=True)
+    remember_me = Column(Boolean(), nullable=False)
     date_registr = Column(DateTime(), nullable=False, default=datetime.utcnow)
+    token = Column(String(120), nullable=True)
 
 class Product(Base):
     __tablename__='products'

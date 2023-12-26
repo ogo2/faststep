@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 from models import *
 from typing import List
@@ -23,14 +23,29 @@ async def get_product_page(session: AsyncSession, id: int) -> List['Product']:
     result = await session.execute(select(Product).where(Product.id==id))
     return result.scalars().all()
 
-async def register_user(session: AsyncSession, name: str, phone: str, email: str, password: str)->List['User']:
+async def get_user(session: AsyncSession, token: str) -> List['User']:
+    result = await session.execute(select(User).where(User.token==token))
+    return result.all()
+
+async def get_user_login(session: AsyncSession, email: str) -> List['User']:
+    result = await session.execute(select(User).where(User.email==email))
+    return result.scalars().all()
+
+async def register_user(session: AsyncSession, name: str, phone: str, 
+                        email: str, password: str, remember_me: bool, token: str)->List['User']:
     new_user = User(name=name,
                     phone=phone,
                     email=email,
                     password=password,
-                    date_registr=datetime.now())
+                    remember_me=remember_me,
+                    date_registr=datetime.now(),
+                    token=token)
     session.add(new_user)
     return new_user
+
+async def activate_user(session: AsyncSession, token: str):
+    activate_user = await session.execute(update(User).where(User.token == token).values(token='activate'))
+    return activate_user
 
 async def get_brand_name(session: AsyncSession) -> List['Product']:
     result = await session.execute(select(Product.brand, func.count(Product.brand).label("brand_count")).group_by(Product.brand).order_by(func.count(Product.brand).desc()))

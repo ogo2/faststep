@@ -1,7 +1,6 @@
-from fastapi import FastAPI, File, Form
+from fastapi import FastAPI, File, Form, HTTPException, Depends, FastAPI, Request, Query
 from typing import Union
 from fastapi.templating import Jinja2Templates
-from fastapi import FastAPI, Request, Query
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -10,22 +9,21 @@ from pydantic import BaseModel
 import service
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List
-from fastapi import Depends
 from base import get_session
 from fastapi_pagination import Page, add_pagination, paginate
 from typing_extensions import Annotated
+import secrets
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
-import secrets
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+from token2 import create_jwt_token, verify_jwt_token
+from models import User
 
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
-templates = Jinja2Templates(directory="templates")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/login')
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+templates = Jinja2Templates(directory="templates")
 
 async def hash_password(password: str):
     return pwd_context.hash(password)
@@ -43,11 +41,17 @@ class UserSchema(BaseModel):
     phone: str
     email: str
     password: str
-    repeat_password: str
-    remember_me: Union[str, None] = None
+    token: Union[str, None] = None
+    remember_me: bool
     product_list: Union[str, None] = None
     date_registr: Union[str, None] = None
+    
+    def add_data(self, data: dict):
+        self.__dict__.update(data)
 
+class UserAuth(BaseModel):
+    email: str
+    password: str
 
 # сессия может быть внедрена (инжектирована) с помощью Depends. Таким образом, вызов каждого из маршрутов создаст новую сессию. 
 # Для получения данных единственное изменение заключается в том, что теперь мы хотим применить await для нашей сервисной функции.
@@ -95,21 +99,55 @@ async def register(request: Request, session: AsyncSession=Depends(get_session))
 
 
 @app.post('/register', response_model=UserSchema)
-async def register_token(user: UserSchema): 
-    # token = secrets.token_hex(16)
-    # hashed_password = await hash_password(password)
-    # user(name=username,
-    #      email=email,
-    #      phone=phone,
-    #      password=hashed_password)
-    # print(user.name)
+async def register_token(user: UserSchema, session: AsyncSession=Depends(get_session)):
+    token = secrets.token_hex(16)
+    hashed_password = await hash_password(user.password)
+    data = {
+        'password': hashed_password,
+        'token': token
+    }
+    user.add_data(data)
+    add_user = await service.register_user(session, name=user.name, phone=user.phone, email=user.email, 
+                                        password=user.password, remember_me=user.remember_me, 
+                                        token=user.token)
+    print(user.token)
+    await session.commit()
     return user
 
+@app.get('/register/{token}')
+async def finish_register(token: str,  session: AsyncSession=Depends(get_session)):
+    user = await service.get_user(session, token)
+    try:
+        user = user[0][0]
+        if user.token == token:
+            user = await service.activate_user(session, token)
+            await session.commit()
+            return 'Регистрация подтверждена'
+        else:
+            return 'Ошибка 404'
+    except Exception:
+        return 'Ошибка 404'
 
-# @app.get('/register/{token}')
-# async def register_user(user: UserSchema, session: AsyncSession=Depends(get_session), token: str = token):
-    
-#     hashed_password = await hash_password(password)
-#     add_user = await service.register_user(session, username, phone, email, password)
-#     await session.commit()
-#     return add_user
+@app.get('/login', response_class=HTMLResponse)
+async def login(request: Request, session: AsyncSession=Depends(get_session)):
+    return templates.TemplateResponse('login.html', {'request': request})
+
+@app.post('/login')
+async def auth_login(user: UserAuth, session: AsyncSession=Depends(get_session)):
+    user_sql = await service.get_user_login(session, user.email)
+    is_password_correct = pwd_context.verify(user.password, user_sql[0].password)
+    jwt_token = create_jwt_token({"sub": user_sql[0].email})
+    return {"access_token": jwt_token, "token_type": "bearer", 
+            'user_id': user_sql[0].id, 'email': user_sql[0].email }
+
+async def get_current_user(session: AsyncSession=Depends(get_session)):
+    decoded_data = verify_jwt_token('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2bGFkQGdtYWlsLmNvbSIsImV4cCI6MTcwMzYyMTYwM30.ihBUroopDb_EQxNITQy2_z2guDPUJOZuQ1MqZ1OFW_k')
+    print(decoded_data)
+    if not decoded_data:
+        raise HTTPException(status_code=400, detail="Invalid token")
+    user = await service.get_user_login(session, decoded_data["sub"])  # Получите пользователя из базы данных
+    return user
+
+@app.get("/users/me")
+async def get_user_me(current_user: str = Depends(get_current_user)):
+    return current_user
