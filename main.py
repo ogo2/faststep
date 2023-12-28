@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, Form, HTTPException, Depends, FastAPI, Request, Query
+from fastapi import FastAPI, File, Form, HTTPException, Depends, FastAPI, Request, Query, Cookie, Response
 from typing import Union
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
@@ -41,7 +41,7 @@ class UserSchema(BaseModel):
     phone: str
     email: str
     password: str
-    token: Union[str, None] = None
+    activate: Union[str, None] = None
     remember_me: bool
     product_list: Union[str, None] = None
     date_registr: Union[str, None] = None
@@ -104,23 +104,23 @@ async def register_token(user: UserSchema, session: AsyncSession=Depends(get_ses
     hashed_password = await hash_password(user.password)
     data = {
         'password': hashed_password,
-        'token': token
+        'activate': token
     }
     user.add_data(data)
     add_user = await service.register_user(session, name=user.name, phone=user.phone, email=user.email, 
                                         password=user.password, remember_me=user.remember_me, 
-                                        token=user.token)
-    print(user.token)
+                                        token=user.activate)
     await session.commit()
+    print(token)
     return user
 
-@app.get('/register/{token}')
-async def finish_register(token: str,  session: AsyncSession=Depends(get_session)):
-    user = await service.get_user(session, token)
+@app.get('/register/{activate}')
+async def finish_register(activate: str,  session: AsyncSession=Depends(get_session)):
+    user = await service.get_user(session, activate)
     try:
         user = user[0][0]
-        if user.token == token:
-            user = await service.activate_user(session, token)
+        if user.activate == activate:
+            user = await service.activate_user(session, activate)
             await session.commit()
             return 'Регистрация подтверждена'
         else:
@@ -133,15 +133,20 @@ async def login(request: Request, session: AsyncSession=Depends(get_session)):
     return templates.TemplateResponse('login.html', {'request': request})
 
 @app.post('/login')
-async def auth_login(user: UserAuth, session: AsyncSession=Depends(get_session)):
+async def auth_login(response: Response, user: UserAuth, session: AsyncSession=Depends(get_session) ):
+    
     user_sql = await service.get_user_login(session, user.email)
-    is_password_correct = pwd_context.verify(user.password, user_sql[0].password)
-    jwt_token = create_jwt_token({"sub": user_sql[0].email})
+    user_sql = user_sql[0]
+    if user_sql.activate != 'activate':
+        return 'Не подтвержденный профиль!!!'
+    is_password_correct = pwd_context.verify(user.password, user_sql.password)
+    jwt_token = create_jwt_token({"sub": user_sql.email})
+    response.set_cookie(key="jwt_token", value=jwt_token)
     return {"access_token": jwt_token, "token_type": "bearer", 
-            'user_id': user_sql[0].id, 'email': user_sql[0].email }
+            'user_id': user_sql.id, 'email': user_sql.email }
 
-async def get_current_user(session: AsyncSession=Depends(get_session)):
-    decoded_data = verify_jwt_token('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2bGFkQGdtYWlsLmNvbSIsImV4cCI6MTcwMzYyMTYwM30.ihBUroopDb_EQxNITQy2_z2guDPUJOZuQ1MqZ1OFW_k')
+async def get_current_user(jwt_token: str = Cookie(), session: AsyncSession=Depends(get_session)):
+    decoded_data = verify_jwt_token(jwt_token)
     print(decoded_data)
     if not decoded_data:
         raise HTTPException(status_code=400, detail="Invalid token")
@@ -149,5 +154,5 @@ async def get_current_user(session: AsyncSession=Depends(get_session)):
     return user
 
 @app.get("/users/me")
-async def get_user_me(current_user: str = Depends(get_current_user)):
+async def get_user_me(current_user: dict = Depends(get_current_user)):
     return current_user

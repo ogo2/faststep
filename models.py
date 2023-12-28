@@ -20,7 +20,8 @@ class User(Base):
     product_list = Column(ARRAY(Integer), nullable=True)
     remember_me = Column(Boolean(), nullable=False)
     date_registr = Column(DateTime(), nullable=False, default=datetime.utcnow)
-    token = Column(String(120), nullable=True)
+    activate = Column(String(120), nullable=True)
+    token = Column(String(220), nullable=True)
 
 class Product(Base):
     __tablename__='products'

@@ -23,8 +23,8 @@ async def get_product_page(session: AsyncSession, id: int) -> List['Product']:
     result = await session.execute(select(Product).where(Product.id==id))
     return result.scalars().all()
 
-async def get_user(session: AsyncSession, token: str) -> List['User']:
-    result = await session.execute(select(User).where(User.token==token))
+async def get_user(session: AsyncSession, activate: str) -> List['User']:
+    result = await session.execute(select(User).where(User.activate==activate))
     return result.all()
 
 async def get_user_login(session: AsyncSession, email: str) -> List['User']:
@@ -39,13 +39,17 @@ async def register_user(session: AsyncSession, name: str, phone: str,
                     password=password,
                     remember_me=remember_me,
                     date_registr=datetime.now(),
-                    token=token)
+                    activate=token)
     session.add(new_user)
     return new_user
 
-async def activate_user(session: AsyncSession, token: str):
-    activate_user = await session.execute(update(User).where(User.token == token).values(token='activate'))
+async def activate_user(session: AsyncSession, activate: str):
+    activate_user = await session.execute(update(User).where(User.activate == activate).values(activate='activate'))
     return activate_user
+
+async def add_token(session: AsyncSession, token: str, email: str):
+    add_token = await session.execute(update(User).where(User.email==email).values(token=token))
+    return add_token
 
 async def get_brand_name(session: AsyncSession) -> List['Product']:
     result = await session.execute(select(Product.brand, func.count(Product.brand).label("brand_count")).group_by(Product.brand).order_by(func.count(Product.brand).desc()))
