@@ -71,6 +71,22 @@
 					                <li class="search-box">
 					                  <a href="#"><span></span></a>
 					                </li>
+									{% if current_user %}
+									<li class="account-icon"> 
+					                	<a href="#"><span></span></a>
+						                <div class="header-link-dropdown account-link-dropdown">
+						                    <ul class="link-dropdown-list">
+						                      <li> <span class="dropdown-title">Добро пожаловать в Fast Step{{current_user.name}}</span>
+												<form method='post' action='/logout'>
+						                        <ul>
+						                          <li><button>Выход<button></li>
+						                        </ul>
+						                      </li>
+											</form>
+						                    </ul>
+						                </div>
+					                </li>
+									{% else %}
 					                <li class="account-icon"> 
 					                	<a href="#"><span></span></a>
 						                <div class="header-link-dropdown account-link-dropdown">
@@ -84,6 +100,8 @@
 						                    </ul>
 						                </div>
 					                </li>
+									{% endif %}
+									{% if current_user %}
 					                <li class="cart-icon"> 
 					                	<a href="#"> <span> <small class="cart-notification">2</small> </span> </a>
 										<div class="cart-dropdown header-link-dropdown">
@@ -120,6 +138,8 @@
 											<div class="mt-20"> <a href="cart.html" class="btn-color btn">Избранное</a> </div>
 										</div>
 					                </li>
+									{% else %}
+									{% endif %}
 					              </ul>
 					            </div>
 				            </div>

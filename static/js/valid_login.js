@@ -11,7 +11,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({'email': email, 'password': password}),
             success: function(data){
-                console.log(data)
+                window.location.href = "/shoes"; // Выполнить редирект на новую страницу
             },
             error: function(error){
                 console.log(error)

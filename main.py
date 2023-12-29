@@ -1,14 +1,14 @@
-from fastapi import FastAPI, File, Form, HTTPException, Depends, FastAPI, Request, Query, Cookie, Response
+from fastapi import FastAPI, File, Form, HTTPException, Depends, FastAPI, Request, Query, Cookie, Response, status
 from typing import Union
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.exc import IntegrityError
 from pydantic import BaseModel
 import service
 from sqlalchemy.ext.asyncio import AsyncSession
-from typing import List
+from typing import List, Optional
 from base import get_session
 from fastapi_pagination import Page, add_pagination, paginate
 from typing_extensions import Annotated
@@ -17,6 +17,8 @@ from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from token2 import create_jwt_token, verify_jwt_token
 from models import User
+from jose import JWTError, jwt
+
 
 app = FastAPI()
 
@@ -53,6 +55,15 @@ class UserAuth(BaseModel):
     email: str
     password: str
 
+async def get_current_user(jwt_token: str = Cookie(), session: AsyncSession=Depends(get_session)):
+    try:
+        decoded_data = verify_jwt_token(jwt_token)
+        if not decoded_data:
+            return None                 #токен есть но у него закончилось время, пользователь не вышел
+        user = await service.get_user_login(session, decoded_data["sub"])  # Получите пользователя из базы данных
+        return user
+    except Exception:
+        return None 
 # сессия может быть внедрена (инжектирована) с помощью Depends. Таким образом, вызов каждого из маршрутов создаст новую сессию. 
 # Для получения данных единственное изменение заключается в том, что теперь мы хотим применить await для нашей сервисной функции.
 @app.post('/admin/add/')
@@ -68,7 +79,7 @@ async def index(request: Request, session: AsyncSession = Depends(get_session)):
 
 # cтраница с кроссовками
 @app.get('/shoes', response_class=HTMLResponse, response_model=List[ProductSchema])
-async def product_list(request: Request, session: AsyncSession=Depends(get_session), page: int = 1):
+async def product_list(request: Request, session: AsyncSession=Depends(get_session), page: int = 1, current_user: dict = Depends(get_current_user)):
     dictionary = {}
     limit = 12
     for i in range(1, 100): 
@@ -82,7 +93,9 @@ async def product_list(request: Request, session: AsyncSession=Depends(get_sessi
     products_all = await service.get_product_all(session)
     data_brand = await service.get_brand_name(session)
     list_all = len(products_all) / 12
-    return templates.TemplateResponse("shop.html", {"request": request, 'products': products, 'brand': data_brand, 'product_all': int(list_all), 'dictionary': dictionary, 'page': page})
+    return templates.TemplateResponse("shop.html", {"request": request, 'products': products, 
+                                                    'brand': data_brand, 'product_all': int(list_all), 
+                                                    'dictionary': dictionary, 'page': page, 'current_user': current_user})
 
 @app.get('/shoes/{name_product}/{id_product}', response_class=HTMLResponse, response_model=List[ProductSchema])
 async def product_page(name_product: str, id_product: int,  request: Request, session: AsyncSession=Depends(get_session)):
@@ -145,13 +158,11 @@ async def auth_login(response: Response, user: UserAuth, session: AsyncSession=D
     return {"access_token": jwt_token, "token_type": "bearer", 
             'user_id': user_sql.id, 'email': user_sql.email }
 
-async def get_current_user(jwt_token: str = Cookie(), session: AsyncSession=Depends(get_session)):
-    decoded_data = verify_jwt_token(jwt_token)
-    print(decoded_data)
-    if not decoded_data:
-        raise HTTPException(status_code=400, detail="Invalid token")
-    user = await service.get_user_login(session, decoded_data["sub"])  # Получите пользователя из базы данных
-    return user
+@app.get('/logout')
+async def logout(response: Response):
+    response.delete_cookie("jwt_token")
+    return response, RedirectResponse(url="/shoes")
+
 
 @app.get("/users/me")
 async def get_user_me(current_user: dict = Depends(get_current_user)):
